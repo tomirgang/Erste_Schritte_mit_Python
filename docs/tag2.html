@@ -1,0 +1,1110 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Was ist ein Computer?</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<style>
+			section {
+				width: 100%;
+				aspect-ratio: 16 / 9;
+				border: 1px solid gray;
+			}
+
+			.wrapper {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background-image: url("assets/Logo_vhs-LKRoth-quer-rgb.jpg");
+				background-repeat: no-repeat, no-repeat;
+				background-size: 25%;
+
+			}
+
+			.header {
+				display: table;
+				position: absolute;
+				background-color: darkgreen;
+				color: white;
+				top: 10%;
+				left: 5%;
+				width: 90%;
+				box-shadow: 10px 5px 5px green;
+				z-index: 10;
+				font-size: 160%;
+			}
+
+			.decorator {
+				position: absolute;
+				z-index: 9;
+				width: 8%;
+				height: 18%;
+				top: 2%;
+				left: 80%;
+				background-color: black;
+				box-shadow: 10px 5px 5px grey;
+			}
+
+			.triangle {
+				position: absolute;
+				z-index: 9;
+				bottom: 0%;
+				left: 0%;
+				border-left: 80px solid darkgreen;
+				border-right: 80px solid transparent;
+				border-bottom: 80px solid darkgreen;
+				border-top: 80px solid transparent;
+				display: inline-block;
+			}
+
+			.bgimage {
+				position: absolute;
+				z-index: 7;
+				bottom: 130px;
+				right: 60px;
+				width: 200px;
+				height: 300px;
+				background-image: url("assets/background_esp.png");
+				background-size: 100% 100%;
+				opacity: 0.25;
+				transform: rotate(45deg);
+			}
+
+			.bgfooter {
+				position: absolute;
+				z-index: 6;
+				bottom: 0%;
+				right: 0%;
+				width: 100%;
+				height: 100px;
+				background-color: darkgreen;
+				opacity: 0.5;
+			}
+
+			.footer {
+				position: absolute;
+				z-index: 7;
+				bottom: 20px;
+				right: 200px;
+				font-size: 20pt;
+				text-align: right;
+			}
+
+			.content {
+				position: absolute;
+				z-index: 10;
+				left: 10%;
+				width: 80%;
+				top: 21%;
+				bottom: 75px;
+				display: flex;
+				align-items: center;
+        		justify-content: center;
+				flex-wrap: wrap;
+				font-size: 125%;
+			}
+
+			.content_section {
+				position: absolute;
+				z-index: 10;
+				left: 10%;
+				width: 80%;
+				top: 21%;
+				bottom: 75px;
+				display: flex;
+				align-items: center;
+        		justify-content: center;
+				flex-wrap: wrap;
+				font-size: 150%;
+			}
+
+			.content_left {
+				position: absolute;
+				z-index: 10;
+				left: 10%;
+				width: 45%;
+				top: 21%;
+				bottom: 75px;
+				display: flex;
+				align-items: center;
+        		justify-content: left;
+				flex-wrap: wrap;
+				text-align: left;
+				font-size: 125%;
+			}
+
+			.link {
+				font-size: 70%;
+				color: gray;
+				text-overflow: wrap;
+			}
+
+			.link_inline {
+				font-size: 100%;
+				color: gray;
+				text-overflow: wrap;
+			}
+
+			.wrapper a {
+				color: gray;
+			}
+
+			.title {
+				display: table-cell;
+				text-align: left;
+				padding-left: 20px;
+			}
+
+			.subtitle {
+				display: table-cell;
+				font-size: 50%;
+				text-align: right;
+				padding-left: 20px;
+				padding-right: 100px;
+			}
+
+			.image {
+				position: absolute;
+				text-overflow: wrap;
+				width: 22%;
+			}
+
+			.image img {
+				margin: unset;
+				object-fit: contain;
+			}
+
+			.image_right {
+				z-index: 8;
+				top: 22%;
+				right: 3%;
+				height: 65%;
+				width: 42%;
+			}
+
+			.image1 {
+				z-index: 7;
+				top: 22%;
+				right: 1%;
+				height: 25%;
+			}
+
+			.image2 {
+				z-index: 8;
+				top: 22%;
+				right: 22%;
+				height: 25%;
+			}
+
+			.image3 {
+				position: absolute;
+				z-index: 7;
+				top: 55%;
+				right: 22%;
+				height: 25%;
+			}
+
+			.image4 {
+				position: absolute;
+				z-index: 8;
+				top: 55%;
+				right: 1%;
+				height: 25%;
+			}
+
+			.image5 {
+				position: absolute;
+				z-index: 8;
+				top: 22%;
+				right: 42%;
+				height: 25%;
+			}
+
+			.image6 {
+				position: absolute;
+				z-index: 8;
+				top: 55%;
+				right: 42%;
+				height: 25%;
+			}
+
+			.copyright {
+				font-size: 50%;
+				color: darkgray;
+			}
+
+			.cite {
+				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+				font-size: 80%;
+				font-style: italic;
+				width: 75%;
+				overflow: auto;
+			}
+
+			code {
+				font-size: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Kurs 23020</div>
+							<div class="subtitle">Thomas Irgang</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_section">
+							Was ist ein Computer?
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Kurs 23020</div>
+							<div class="subtitle">Thomas Irgang</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							Was ist ein Computer?
+						</div>
+						<div class="image image2">
+							<img src="assets/tag1.png" height="100%">
+							<a class="copyright" href="https://tomirgang.de/was_ist_ein_computer/">Folien Tag 1</a>
+						</div>
+						<div class="image image1">
+							<img src="assets/tag2.png" height="100%">
+							<a class="copyright" href="https://tomirgang.de/was_ist_ein_computer/tag2.html">Folien Tag 2</a>
+						</div>
+						<div class="image image4">
+							<img src="assets/text.png" height="100%">
+							<a class="copyright" href="https://github.com/tomirgang/was_ist_ein_computer">Write up</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Inhalte</div>
+							<div class="subtitle">Was ist ein Computer?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_section">
+							<ul>
+								<li>Tag 1: Was ist ein Computer?</li>
+								<li style="font-weight: bolder;">Tag 2: Wie funktioniert das Internet?</li>
+							</ul>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Tag 2</div>
+							<div class="subtitle">Wie funktioniert das Internet?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content">
+							<ul>
+								<li>Wie funktioniert das Internet?</li>
+								<li>Wie funktioniert Verschlüsselung?</li>
+								<li>Metadaten</li>
+								<li>Was ist Public Key Infrastruktur?</li>
+								<li>Was ist die Cloud?</li>
+								<li>Was ist ein Hacker Angriff?</li>
+							</ul>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Was ist ein Computer?</div>
+							<div class="subtitle"></div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_section">
+							Wie funktioniert das Internet?
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wikipedia: Rechnernetz</div>
+							<div class="subtitle">Wie funktioniert das Internet?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								Ein [...] Computernetzwerk ist ein Zusammenschluss verschiedener [...] primär selbstständiger elektronischer Systeme [...], der die Kommunikation der einzelnen Systeme untereinander ermöglicht. Ziel ist hierbei z. B. die gemeinsame Nutzung von Ressourcen wie Netzwerkdruckern, Servern, Dateien und Datenbanken. [...] Besondere Bedeutung hat heute auch die direkte Kommunikation zwischen den Netzwerknutzern (Chat, VoIP-Telefonie etc.).
+							</div>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
+							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
+							<a class="copyright" href="https://de.wikipedia.org/wiki/Rechnernetz">https://de.wikipedia.org/wiki/Rechnernetz</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wikipedia: Client-Server-Modell</div>
+							<div class="subtitle">Wie funktioniert das Internet?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								Das Client-Server-Modell [...] beschreibt eine Möglichkeit, Aufgaben und Dienstleistungen innerhalb eines Netzwerkes zu verteilen. [...] Der Client kann auf Wunsch einen Dienst vom Server anfordern [...]. Der Server [...] beantwortet die Anforderung [...]; üblicherweise kann ein Server gleichzeitig für mehrere Clients arbeiten.
+							</div>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
+							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
+							<a class="copyright" href="https://de.wikipedia.org/wiki/Client-Server-Modell">https://de.wikipedia.org/wiki/Client-Server-Modell</a>
+						</div>
+						<div class="image image4">
+							<img src="assets/Client-server-model.svg" height="100%">
+							<div class="copyright">Gnome-fs-client.svg: David VignoniGnome-fs-server.svg: David Vignoniderivative work: Calimo, LGPL <http://www.gnu.org/licenses/lgpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wikipedia: Internet</div>
+							<div class="subtitle">Wie funktioniert das Internet?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								Das Internet [...] ist ein weltweiter Verbund von Rechnernetzwerken [...]. Es ermöglicht die Nutzung von Internetdiensten wie WWW, E-Mail, [...] Der Datenaustausch zwischen den über das Internet verbundenen Rechnern erfolgt über die technisch normierten Internetprotokolle.
+							</div>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
+							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
+							<a class="copyright" href="https://de.wikipedia.org/wiki/Internet">https://de.wikipedia.org/wiki/Internet</a>
+						</div>
+						<div class="image image4" style="top: 58%;">
+							<img src="assets/Internet.png" height="100%">
+							<div class="copyright">Jcarranza, Public domain, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wikipedia: HTML</div>
+							<div class="subtitle">Wie funktioniert das Internet?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								Die Hypertext Markup Language [...] ist eine textbasierte Auszeichnungssprache zur Strukturierung elektronischer Dokumente [...]. HTML-Dokumente sind die Grundlage des World Wide Web und werden von Webbrowsern dargestellt.
+							</div>
+							<ul>
+								<li>HTML = Hypertext Markup Language</li>
+								<li>Statische Beschreibung der Inhalte</li>
+								<li>Wird vom Web-Server ausgeliefert und vom Browser dargestellt</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
+							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
+							<a class="copyright" href="https://de.wikipedia.org/wiki/Hypertext_Markup_Language">https://de.wikipedia.org/wiki/Hypertext_Markup_Language</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wikipedia: JavaScript</div>
+							<div class="subtitle">Wie funktioniert das Internet?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								JavaScript [...] ist eine Skriptsprache, die ursprünglich [...] für dynamisches HTML in Webbrowsern entwickelt wurde, um Benutzerinteraktionen auszuwerten, Inhalte zu verändern, nachzuladen oder zu generieren und so die Möglichkeiten von HTML zu erweitern.
+							</div>
+							<ul>
+								<li>JS = JavaScript</li>
+								<li>Dynamische Inhalte</li>
+								<li>Programm das vom Server geladen und vom Browser ausgeführt wird</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
+							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
+							<a class="copyright" href="https://de.wikipedia.org/wiki/JavaScript">https://de.wikipedia.org/wiki/JavaScript</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">MonkeyScript</div>
+							<div class="subtitle">Wie funktioniert das Internet?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<ul>
+								<li>JavaScript wird vom Browser ausgeführt</li>
+								<li>Browser kann JavaScript manipulieren</li>
+								<li>Manipulation ist nur auf dem eigenen Rechner sichtbar</li>
+								<li>Plugins Tampermonkey / Greasemonkey erlaubt eigene Skripts auszuführen</li>
+							</ul>
+						</div>
+						<div class="image image_right">
+							<pre style="height: 90%;"><code data-trim data-noescape>
+								// ==UserScript==
+								// @name         Replace Wirtschaft
+								// @namespace    http://tampermonkey.net/
+								// @version      0.1
+								// @description  Replace Wirtschaft
+								// @author       You
+								// @match        https://www.heise.de/
+								// @icon         https://www.google.com/s2/favicons?sz=64&domain=heise.de
+								// @grant        none
+								// ==/UserScript==
+
+								(function() {
+									'use strict';
+
+									var content = document.getElementsByTagName('body')[0];
+									if (content) {
+										console.log('replace');
+										content.innerHTML = content.innerHTML.replaceAll('Wirtschaft', '<span style="background-color:lightgreen">Hohoho</span>');
+									}
+								})();
+							</code></pre>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wie funktioniert das Internet?</div>
+							<div class="subtitle">Was ist ein Computer?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_section">
+							Wie funktioniert Verschlüsselung?
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wie funktioniert Verschlüsselung?</div>
+							<div class="subtitle">Wie funktioniert das Internet?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<ul>
+								<li>Bob will Alice eine Nachricht schicken</li>
+								<li>Malloy will die Nachricht lesen</li>
+								<li>Bob und Alice haben ein gemeinsames Passwort</li>
+								<li>Algorithmus ist öffentlich, Passwort ist geheim</li>
+							</ul>
+						</div>
+						<div class="image image_right">
+							<img src="assets/verschluesselung.png" height="100%">
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wikipedia: TLS/SSL</div>
+							<div class="subtitle">Wie funktioniert Verschlüsselung?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								Transport Layer Security [...], auch bekannt unter der Vorgängerbezeichnung Secure Sockets Layer (SSL), ist ein Verschlüsselungsprotokoll zur sicheren Datenübertragung im Internet.
+							</div>
+							<ul>
+								<li>TLS = Transport Layer Security</li>
+								<li>Daten vom Client zum Server werden verschlüsselt</li>
+								<li>Metadaten (wer kommuniziert wann mit wem) sind nicht verschlüsselt</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
+							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
+							<a class="copyright" href="https://de.wikipedia.org/wiki/Transport_Layer_Security">https://de.wikipedia.org/wiki/Transport_Layer_Security</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">eMail</div>
+							<div class="subtitle">Wie funktioniert Verschlüsselung?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<ul>
+								<li>Inhalte sind unverschlüsselt</li>
+								<li>Der Absender kann leicht "gefälscht" werden</li>
+								<li><a class="link_inline" href="https://de.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a>: Senden von eMails</li>
+								<li><a class="link_inline" href="https://de.wikipedia.org/wiki/Internet_Message_Access_Protocol">IMAP</a>/<a class="link_inline" href="https://de.wikipedia.org/wiki/Post_Office_Protocol">POP3</a>: Empfangen von eMails</li>
+								<li>Algorithmus ist öffentlich, Passwort ist geheim</li>
+							</ul>
+						</div>
+						<div class="image image_right">
+							<img src="assets/SMTP.png" height="100%">
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title" style="font-size: 90%;">Wikipedia: Ende-zu-Ende-Verschlüsselung</div>
+							<div class="subtitle">Wie funktioniert Verschlüsselung?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<ul>
+								<li>TLS schützt nur auf dem Transportweg<br>
+									Jeder Server kann die Inhalte lesen/manipulieren</li>
+								<li>Ende-zu-Ende-Verschlüsselung:<br>
+									Daten werden beim Sender verschlüsselt<br>
+									Daten werden beim Empfänger entschlüsselt</li>
+								<li>Inhalte sind geschützt</li>
+								<li>eMail: <a class="link_inline" href="https://de.wikipedia.org/wiki/S/MIME">S/MIME</a> / <a class="link_inline" href="https://de.wikipedia.org/wiki/PGP/MIME">PGP/MIME</a> sind Erweiterungen um den Inhalt zu verschlüsseln</li>
+								<li>Metadaten (wer kommuniziert wann mit wem) sind öffentlich</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
+							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
+							<a class="copyright" href="https://de.wikipedia.org/wiki/Ende-zu-Ende-Verschl%C3%BCsselung">https://de.wikipedia.org/wiki/Ende-zu-Ende-Verschl%C3%BCsselung</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wie funktioniert das Internet?</div>
+							<div class="subtitle">Was ist ein Computer?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_section">
+							Metadaten
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">BSI: Metadaten</div>
+							<div class="subtitle">Metadaten</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								Nachrichten, die über Messenger verschickt werden, bestehen aus dem Text der Nachricht [...] und sogenannten Metadaten. Zu den Metadaten zählen die Kennung des Absenders, häufig in der Form der Telefonnummer, die Kennung des Adressaten, das Datum und die Uhrzeit.  [...] Solche Daten dienen nicht nur der korrekten Zuleitung der Nachricht, sondern können auch zur Analyse von Vorlieben und ähnlichem genutzt werden. Auf diese Weise lassen sich Profile erstellen, die für personalisierte Werbung genutzt werden können.
+							</div>
+						</div>
+						<div class="image image1">
+							<img src="assets/Bundesamt_für_Sicherheit_in_der_Informationstechnik-Logo.svg" height="100%">
+							<div class="copyright">cfaerber, Public domain, via Wikimedia Commons</div>
+							<a class="copyright" href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Onlinekommunikation/Chat-Messenger/Messenger/messenger_node.html#:~:text=Nachrichten%2C%20die%20%C3%BCber%20Messenger%20verschickt,das%20Datum%20und%20die%20Uhrzeit.">https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Onlinekommunikation/Chat-Messenger/Messenger/messenger_node.html</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">SpiegelMining</div>
+							<div class="subtitle">Metadaten</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<ul>
+								<li><a class="link_inline" href="https://media.ccc.de/v/33c3-7912-spiegelmining_reverse_engineering_von_spiegel-online">SpiegelMining</a> zeigt was mit Metadaten möglich ist</li>
+							</ul>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/-YpwsdRKt8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						<div class="image image_right">
+							<img src="assets/spon1_logo.png" height="100%">
+							<a class="copyright" href="https://www.dkriesel.com/spiegelmining">https://www.dkriesel.com/spiegelmining</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wie funktioniert das Internet?</div>
+							<div class="subtitle">Was ist ein Computer?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_section">
+							Was ist Public Key Infrastruktur?
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title" style="font-size: 90%;">Wikipedia: Asymmetrisches Kryptosystem</div>
+							<div class="subtitle">Was ist Public Key Infrastruktur?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								Das „asymmetrische Kryptosystem“ oder „Public-Key-Kryptosystem“ ist ein kryptographisches Verfahren, bei dem [...]  die kommunizierenden Parteien keinen gemeinsamen geheimen Schlüssel zu kennen brauchen. Jeder Benutzer erzeugt sein eigenes Schlüsselpaar, das aus einem geheimen Teil (privater Schlüssel) und einem nicht geheimen Teil (öffentlicher Schlüssel) besteht. Der öffentliche Schlüssel ermöglicht es jedem, Daten für den Besitzer des privaten Schlüssels zu verschlüsseln, [...]. Der private Schlüssel ermöglicht es seinem Besitzer, mit dem öffentlichen Schlüssel verschlüsselte Daten zu entschlüsseln, [...].
+							</div>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Orange_blue_public_private_keygeneration_de.svg.png" height="100%">
+							<div class="copyright">Bananenfalter, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/512px-Orange_blue_public_key_cryptography_de.svg.png" height="100%">
+							<div class="copyright">Bananenfalter🍌🦋, CC0, via Wikimedia Commons</div>
+							<a class="copyright" href="https://de.wikipedia.org/wiki/Asymmetrisches_Kryptosystem">Wikipedia: Asymmetrisches_Kryptosystem</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wikipedia: Public-Key-Infrastruktur</div>
+							<div class="subtitle">Was ist Public Key Infrastruktur?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								Mit Public-Key-Infrastruktur [...] bezeichnet man in der Kryptologie ein System, das digitale Zertifikate ausstellen, verteilen und prüfen kann. Die innerhalb einer PKI ausgestellten Zertifikate werden zur Absicherung rechnergestützter Kommunikation verwendet.
+							</div>
+							<ul>
+								<li>Basiert auf <a class="link_inline" href="https://de.wikipedia.org/wiki/Asymmetrisches_Kryptosystem">asymmetrischer Verschlüsselung</a></li>
+								<li>Anwendungen: HTTPS, Corona Impfzertifikate</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
+							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
+							<a class="copyright" href="https://de.wikipedia.org/wiki/Public-Key-Infrastruktur">https://de.wikipedia.org/wiki/Public-Key-Infrastruktur</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wie funktioniert das Internet?</div>
+							<div class="subtitle">Was ist ein Computer?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_section">
+							Was ist die Cloud?
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title" style="font-size: 90%;">Wikipedia: Cloud Computing</div>
+							<div class="subtitle">Was ist die Cloud?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								Cloud Computing [...] beschreibt ein Modell, das bei Bedarf [...] zeitnah und mit wenig Aufwand geteilte Computerressourcen als Dienstleistung [...] bereitstellt und nach Nutzung abrechnet.
+							</div>
+							<ul>
+								<li>Cloud = Computer des Anbieters</li>
+								<li>Ohne Verschlüsselung hat der Cloud-Anbieter Datenzugriff</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
+							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
+							<a class="copyright" href="https://de.wikipedia.org/wiki/Cloud_Computing">https://de.wikipedia.org/wiki/Cloud_Computing</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wie funktioniert das Internet?</div>
+							<div class="subtitle">Was ist ein Computer?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_section">
+							Was ist ein Hacker Angriff?
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title" style="font-size: 90%;">Wikipedia: Black Hat Hacker</div>
+							<div class="subtitle">Was ist ein Hacker Angriff?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								Black-Hats [...] handeln mit krimineller Energie [...] und beabsichtigen [...] das Zielsystem zu beschädigen oder Daten zu stehlen[...].
+							</div>
+							<ul>
+								<li>Kriminelle oder staatliche motivierte Manipulation von fremden Computern</li>
+								<li>Angriffswege:
+									<ol>
+										<li><a class="link_inline" href="https://de.wikipedia.org/wiki/Phishing">Phishing</a>, <a class="link_inline" href="https://de.wikipedia.org/wiki/Social_Engineering_(Sicherheit)">Social Engineering</a></li>
+										<li>Schlechte Konfiguration (Standard-Passwörter)</li>
+										<li>Softwarefehler (<a class="link_inline" href="https://de.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures">CVE</a>)</li>
+								</ol>
+								</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
+							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
+							<a class="copyright" href="https://de.wikipedia.org/wiki/Hacker_(Computersicherheit)#Black-Hats">https://de.wikipedia.org/wiki/Hacker_(Computersicherheit)#Black-Hats</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title" style="font-size: 90%;">Wie funktioniert ein Hacker-Angriff?</div>
+							<div class="subtitle">Was ist ein Hacker Angriff?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<ul>
+								<li>"Hacker-Angriff":<ul>
+									<li>Zugriff erlangen über einen Angriffsweg</li>
+									<li>Zugriff sichern - "unsichtbar" für das Opfer</li>
+									<li>Zugriff ausweiten - andere Geräte im Netzwerk</li>
+									<li>Kriminelle Motivation: Profit erzielen<br>
+										Daten stehlen und verkaufen (Kreditkarten, Firmengeheimnisse, ...)<br>
+										Ransomware</li>
+								</ul></li>
+								<li><a class="link_inline" href="https://de.wikipedia.org/wiki/Denial_of_Service">Denial of Service (DoS)</a> ("digitaler Sitzstreik")<br>
+								Dienst wird überlastet und dadurch nicht mehr erreichbar</li>
+								</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/2017_Petya_cyberattack_screenshot.png" height="100%">
+							<div class="copyright">Public domain, via Wikimedia Commons</div>
+							<a class="copyright" href="https://en.wikipedia.org/wiki/Petya_and_NotPetya">Wikippedia: Petya_and_NotPetya</a>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title" style="font-size: 90%;">Ransomware</div>
+							<div class="subtitle">Was ist ein Hacker Angriff?</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<ul>
+								<li>Erpressungssoftware (<a class="link_inline" href="https://de.wikipedia.org/wiki/Ransomware">Ransomware</a>)</li>
+								<li>Daten werden verschlüsselt</li>
+								<li>Unternehmen: Daten werden auch gestohlen und mit Veröffentlichung gedroht</li>
+							</ul>
+						</div>
+						<div class="image image_right">
+							<img src="assets/512px-감염사진.png" height="100%">
+							<div class="copyright">황승환, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wie funktioniert das Internet?</div>
+							<div class="subtitle"></div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<div class="image" style="width: 60%;">
+								<img src="assets/Internet_of_things_signed_by_the_author.jpg" height="100%">
+							<div class="copyright">Wilgengebroed on Flickr, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons</div>
+							</div>
+						</div>
+						<div class="image image_right">
+							<img src="assets/Question_mark_trio.png" height="100%">
+							<div class="copyright">Per A.J. Andersson, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23020 - Was ist ein Computer?<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+			</div>
+		</div>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				width: 1920,
+  				height: 1080,
+				// Factor of the display size that should remain empty around
+				// the content
+  				margin: 0,
+  				// Bounds for smallest/largest possible scale to apply to content
+  				minScale: 0.2,
+  				maxScale: 3,
+				controls: true,
+				slideNumber: true,
+				mouseWheel: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
