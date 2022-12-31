@@ -1,0 +1,622 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Erste Schritte mit Python</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<style>
+			section {
+				width: 100%;
+				aspect-ratio: 16 / 9;
+				border: 1px solid gray;
+			}
+
+			.wrapper {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background-image: url("assets/Logo_vhs-LKRoth-quer-rgb.jpg");
+				background-repeat: no-repeat, no-repeat;
+				background-size: 25%;
+
+			}
+
+			.header {
+				display: table;
+				position: absolute;
+				background-color: darkgreen;
+				color: white;
+				top: 10%;
+				left: 5%;
+				width: 90%;
+				box-shadow: 10px 5px 5px green;
+				z-index: 10;
+				font-size: 160%;
+			}
+
+			.decorator {
+				position: absolute;
+				z-index: 9;
+				width: 8%;
+				height: 18%;
+				top: 2%;
+				left: 80%;
+				background-color: black;
+				box-shadow: 10px 5px 5px grey;
+			}
+
+			.triangle {
+				position: absolute;
+				z-index: 9;
+				bottom: 0%;
+				left: 0%;
+				border-left: 80px solid darkgreen;
+				border-right: 80px solid transparent;
+				border-bottom: 80px solid darkgreen;
+				border-top: 80px solid transparent;
+				display: inline-block;
+			}
+
+			.bgimage {
+				position: absolute;
+				z-index: 7;
+				bottom: 130px;
+				right: 60px;
+				width: 200px;
+				height: 300px;
+				background-image: url("assets/background_esp.png");
+				background-size: 100% 100%;
+				opacity: 0.25;
+				transform: rotate(45deg);
+			}
+
+			.bgfooter {
+				position: absolute;
+				z-index: 6;
+				bottom: 0%;
+				right: 0%;
+				width: 100%;
+				height: 100px;
+				background-color: darkgreen;
+				opacity: 0.5;
+			}
+
+			.footer {
+				position: absolute;
+				z-index: 7;
+				bottom: 20px;
+				right: 200px;
+				font-size: 20pt;
+				text-align: right;
+			}
+
+			.content {
+				position: absolute;
+				z-index: 10;
+				left: 10%;
+				width: 80%;
+				top: 21%;
+				bottom: 75px;
+				display: flex;
+				align-items: center;
+        		justify-content: center;
+				flex-wrap: wrap;
+				font-size: 125%;
+			}
+
+			.content_section {
+				position: absolute;
+				z-index: 10;
+				left: 10%;
+				width: 80%;
+				top: 21%;
+				bottom: 75px;
+				display: flex;
+				align-items: center;
+        		justify-content: center;
+				flex-wrap: wrap;
+				font-size: 150%;
+			}
+
+			.content_left {
+				position: absolute;
+				z-index: 10;
+				left: 10%;
+				width: 45%;
+				top: 21%;
+				bottom: 75px;
+				display: flex;
+				align-items: center;
+        		justify-content: left;
+				flex-wrap: wrap;
+				text-align: left;
+				font-size: 125%;
+			}
+
+			.link {
+				font-size: 70%;
+				color: gray;
+				text-overflow: wrap;
+			}
+
+			.link_inline {
+				font-size: 100%;
+				color: gray;
+				text-overflow: wrap;
+			}
+
+			.wrapper a {
+				color: gray;
+			}
+
+			.title {
+				display: table-cell;
+				text-align: left;
+				padding-left: 20px;
+			}
+
+			.subtitle {
+				display: table-cell;
+				font-size: 50%;
+				text-align: right;
+				padding-left: 20px;
+				padding-right: 100px;
+			}
+
+			.image {
+				position: absolute;
+				text-overflow: wrap;
+				width: 22%;
+			}
+
+			.image img {
+				margin: unset;
+				object-fit: contain;
+			}
+
+			.image_right {
+				z-index: 8;
+				top: 22%;
+				right: 3%;
+				height: 65%;
+				width: 42%;
+			}
+
+			.image_left {
+				z-index: 8;
+				top: 22%;
+				left: 3%;
+				height: 65%;
+				width: 42%;
+			}
+
+			.image1 {
+				z-index: 7;
+				top: 22%;
+				right: 1%;
+				height: 25%;
+			}
+
+			.image2 {
+				z-index: 8;
+				top: 22%;
+				right: 22%;
+				height: 25%;
+			}
+
+			.image3 {
+				position: absolute;
+				z-index: 7;
+				top: 55%;
+				right: 22%;
+				height: 25%;
+			}
+
+			.image4 {
+				position: absolute;
+				z-index: 8;
+				top: 55%;
+				right: 1%;
+				height: 25%;
+			}
+
+			.image5 {
+				position: absolute;
+				z-index: 8;
+				top: 22%;
+				right: 42%;
+				height: 25%;
+			}
+
+			.image6 {
+				position: absolute;
+				z-index: 8;
+				top: 55%;
+				right: 42%;
+				height: 25%;
+			}
+
+			.copyright {
+				font-size: 50%;
+				color: darkgray;
+			}
+
+			.cite {
+				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+				font-size: 80%;
+				font-style: italic;
+				width: 75%;
+				overflow: auto;
+			}
+
+			code {
+				font-size: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Kurs 23720</div>
+							<div class="subtitle">Thomas Irgang</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_section">
+							Erste Schritte mit Python
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Kurs 23720</div>
+							<div class="subtitle">Thomas Irgang</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							Erste Schritte mit Python
+						</div>
+						<div class="image image2">
+							<img src="assets/tag1.png" width="100%">
+							<a class="copyright" href="http://tomirgang.de/Erste_Schritte_mit_Python/">Folien Tag 1</a>
+						</div>
+						<div class="image image1">
+							<img src="assets/tag2.png" width="100%">
+							<a class="copyright" href="http://tomirgang.de/Erste_Schritte_mit_Python/tag2.html">Folien Tag 2</a>
+						</div>
+						<div class="image image3">
+							<img src="assets/tag3.png" width="100%">
+							<a class="copyright" href="http://tomirgang.de/Erste_Schritte_mit_Python/tag3.html">Folien Tag 3</a>
+						</div>
+						<div class="image image4">
+							<img src="assets/tag4.png" width="100%">
+							<a class="copyright" href="http://tomirgang.de/Erste_Schritte_mit_Python/tag4.html">Folien Tag 4</a>
+						</div>
+						<div class="image image6" style="z-index: 10;">
+							<img src="assets/writeup.png" width="100%">
+							<a class="copyright" href="https://github.com/tomirgang/Erste_Schritte_mit_Python">Write up</a>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Inhalte</div>
+							<div class="subtitle">Erste Schritte mit Python</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_section">
+							<ul>
+								<li>Tag 1: Grundlagen und erste Schritte</li>
+								<li>Tag 2: Daten und Programmfluss</li>
+								<li style="font-weight: bolder;">Tag 3: Funktionen und Klassen</li>
+								<li>Tag 4: Bibliotheken und Programme</li>
+							</ul>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Tag 3</div>
+							<div class="subtitle"> Erste Schritte mit Python</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content">
+							<ul>
+								<li style="font-weight: bolder;">Computer Grundlagen III: Algorithmen</li>
+								<li>Python Grundlagen III: Funktionen</li>
+								<li>Projekt 4: ???</li>
+								<li>Python Grundlagen IV: Klassen</li>
+								<li>Projekt 5: ???</li>
+								<li>Quellen zum Selbststudium</li>
+							</ul>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Computer Grundlagen</div>
+							<div class="subtitle"> Erste Schritte mit Python</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content">
+							<ul>
+								<li style="font-weight: bolder;">Was ist ein Algorithmus?</li>
+							</ul>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Wikipedia: Algorithmus</div>
+							<div class="subtitle">Algorithmen</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<div class="cite">
+								Ein Algorithmus ist eine eindeutige Handlungsvorschrift zur Lösung eines Problems oder einer Klasse von Problemen.
+							</div>
+							<ul style="font-size: 80%;">
+								<li>Finitheit: endlich beschreibbar</li>
+								<li>Ausführbarkeit: jeder Schritt muss (eindeutig) ausführbar sein</li>
+								<li>Dynamische Finitheit: darf nur endlich viel Speicher verwenden</li>
+								<li>Terminierung: darf nur endlich viele Schritte benötigen</li>
+								<li>Determiniertheit: muss unter denselben Voraussetzungen das gleiche Ergebnis liefern</li>
+								<li>Determinismus: der nächste Schritt muss zu jedem Zeitpunkt eindeutig sein</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
+							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
+							<div class="copyright">https://de.wikipedia.org/wiki/Algorithmus</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Tag 3</div>
+							<div class="subtitle"> Erste Schritte mit Python</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content">
+							<ul>
+								<li>Computer Grundlagen III: Algorithmen</li>
+								<li style="font-weight: bolder;">Python Grundlagen III: Funktionen</li>
+								<li>Projekt 4: ???</li>
+								<li>Python Grundlagen IV: Klassen</li>
+								<li>Projekt 5: ???</li>
+								<li>Quellen zum Selbststudium</li>
+							</ul>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Tag 3</div>
+							<div class="subtitle"> Erste Schritte mit Python</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content">
+							<ul>
+								<li>Computer Grundlagen III: Algorithmen</li>
+								<li>Python Grundlagen III: Funktionen</li>
+								<li>Projekt 4: ???</li>
+								<li>Python Grundlagen IV: Klassen</li>
+								<li>Projekt 5: ???</li>
+								<li style="font-weight: bolder;">Quellen zum Selbststudium</li>
+							</ul>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Quellen zum Selbststudium (Deutsch)</div>
+							<div class="subtitle"> Erste Schritte mit Python</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<ul>
+								<li>YouTube Video Reihe:<br>
+									<a class="link_inline" href="https://www.youtube.com/playlist?list=PLhC_4AWNg9rnM_qAPyUU4Wo1kJoOAMC6_">https://www.youtube.com/@Gravitar</a></li>
+								<li><a class="link_inline" href="https://www.python-kurs.eu/python3_kurs.php">https://www.python-kurs.eu/python3_kurs.php</a></li>
+								<li><a class="link_inline" href="https://www.python-lernen.de/">https://www.python-lernen.de/</a></li>
+								<li><a class="link_inline" href="https://www.python-forum.de/">https://www.python-forum.de/</a></li>
+								<li>Buch: Python von Kopf bis Fuß: Aktuell zu Python 3</li>
+							</ul>
+						</div>
+						<div class="image image2">
+							<img src="assets/a_beautiful_code_in_python.png" height="100%">
+							<div class="copyright">Youtube, A beautiful Code in Python</div>
+						</div>
+						<div class="image image1">
+							<img src="assets/python-kurs.eu.png" height="100%">
+							<div class="copyright">python-kurs.eu</div>
+						</div>
+						<div class="image image3">
+							<img src="assets/python-lernen.de.png" height="100%">
+							<div class="copyright">python-lernen.de</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/python-forum.de.png" height="100%">
+							<div class="copyright">python-forum.de</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Quellen zum Selbststudium (Englisch)</div>
+							<div class="subtitle"> Erste Schritte mit Python</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<ul>
+								<li><a class="link_inline" href="https://docs.python.org/3.11/tutorial/">The Python Tutorial</a></li>
+								<li><a class="link_inline" href="https://docs.python-guide.org/"></a>The Hitchhiker's Guide to Python</li>
+								<li><a class="link_inline" href="https://www.python-lernen.de/">https://www.python-lernen.de/</a></li>
+								<li>Buch: Introducing Python: Modern Computing in Simple Packages</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/python-kurs.eu.png" height="100%">
+							<div class="copyright">The Python Tutorial</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/python_tutorial.png" height="100%">
+							<div class="copyright">The Hitchhiker's Guide to Python</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Erste Schritte mit Python</div>
+							<div class="subtitle"></div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<div class="image" style="width: 60%;">
+								<img src="assets/Python-logo-notext.svg" width="200%">
+								<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+								<a class="link" href="tag4.html">Tag 4</a>
+							</div>							
+						</div>
+						<div class="image image_right">
+							<img src="assets/Question_mark_trio.png" height="100%">
+							<div class="copyright">Per A.J. Andersson, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+			</div>
+		</div>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				width: 1920,
+  				height: 1080,
+				// Factor of the display size that should remain empty around
+				// the content
+  				margin: 0,
+  				// Bounds for smallest/largest possible scale to apply to content
+  				minScale: 0.2,
+  				maxScale: 3,
+				controls: true,
+				slideNumber: true,
+				mouseWheel: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
