@@ -339,8 +339,8 @@
 						<div class="content_section">
 							<ul>
 								<li>Tag 1: Grundlagen und erste Schritte</li>
-								<li style="font-weight: bolder;">Tag 2: Daten und Bibliotheken</li>
-								<li>Tag 3: Programmfluss und Funktionen</li>
+								<li style="font-weight: bolder;">Tag 2: Daten</li>
+								<li>Tag 3: Bibliotheken und Funktionen</li>
 								<li>Tag 4: Klassen und Programme</li>
 							</ul>
 						</div>
@@ -366,8 +366,6 @@
 								<li style="font-weight: bolder;">Computer Grundlagen II: Datenkodierung</li>
 								<li>Python Grundlagen II: Datenstrukturen</li>
 								<li>Projekt 2: CSV & JSON</li>
-								<li>Python Grundlagen III: venv, pip und Bibliotheken</li>
-								<li>Projekt 3: Web-APIs und Spreadsheets</li>
 								<li>Quellen zum Selbststudium</li>
 							</ul>
 						</div>
@@ -722,8 +720,6 @@
 								<li>Computer Grundlagen II: Datenkodierung</li>
 								<li style="font-weight: bolder;">Python Grundlagen II: Datenstrukturen</li>
 								<li>Projekt 2: CSV & JSON</li>
-								<li>Python Grundlagen III: venv, pip und Bibliotheken</li>
-								<li>Projekt 3: Web-APIs und Spreadsheets</li>
 								<li>Quellen zum Selbststudium</li>
 							</ul>
 						</div>
@@ -1135,8 +1131,6 @@
 								<li>Computer Grundlagen II: Datenkodierung</li>
 								<li>Python Grundlagen II: Datenstrukturen</li>
 								<li style="font-weight: bolder;">Projekt 2: CSV & JSON</li>
-								<li>Python Grundlagen III: venv, pip und Bibliotheken</li>
-								<li>Projekt 3: Web-APIs und Spreadsheets</li>
 								<li>Quellen zum Selbststudium</li>
 							</ul>
 						</div>
@@ -1707,22 +1701,170 @@
 				<section>
 					<div class="wrapper">
 						<div class="header">
-							<div class="title">Tag 2</div>
-							<div class="subtitle"> Erste Schritte mit Python</div>
+							<div class="title">JSON (JavaScript Object Notation)</div>
+							<div class="subtitle">Projekt 2: CSV & JSON</div>
 						</div>
 						<div class="decorator"></div>
 						<div class="triangle"></div>
 						<div class="bgimage"></div>
 						<div class="bgfooter"></div>
-						<div class="content">
+						<div class="content_left" style="width: 75%;">
 							<ul>
-								<li>Computer Grundlagen II: Datenkodierung</li>
-								<li>Python Grundlagen II: Datenstrukturen</li>
-								<li>Projekt 2: CSV & JSON</li>
-								<li style="font-weight: bolder;">Python Grundlagen III: venv, pip und Bibliotheken</li>
-								<li>Projekt 3: Web-APIs und Spreadsheets</li>
-								<li>Quellen zum Selbststudium</li>
+								<li>json<br>
+								<a class="link_inline" href="https://docs.python.org/3/library/json.html">Python Dokumentation</a></li>
+								<li>Bibliotheken für JSON Daten</li>
 							</ul>
+							<pre style="margin: unset; width: 90%;"><code data-trim data-noescape>
+								>>> import json
+								>>> data = None
+								>>> with open('data.json', 'r') as f:
+								...     data = json.load(f)
+								... 
+								>>> print(data['data'][0])
+								{'ID Nation': '01000US', 'Nation': 'United States', 'ID Year': 2020, 'Year': '2020', 'Population': 326569308, 'Slug Nation': 'united-states'}
+							</code></pre>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Aufgabe</div>
+							<div class="subtitle">Projekt 2: CSV & JSON</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 70%;">
+							<ul>
+								<li>Teil 3: Data USA Bevölkerung JSON<br>
+									<a class="link_inline" href="https://datausa.io/api/data?drilldowns=Nation&measures=Population">datausa.io https://t.ly/8Py-</a><br>
+								Stelle die Bevölkerungsentwicklung in den USA graphisch dar.</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-schreiben.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Gruppenarbeit</div>
+							<div class="subtitle">Projekt 2: CSV & JSON</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<div class="image" style="width: 70%;">
+								<img src="assets/Aufgabe-rechnen_Kopf.svg.png" width="100%">
+								<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+							</div>							
+						</div>
+						<div class="image image_right">
+							<img src="assets/Aufgabe-Personen-Gruppe.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Lösung</div>
+							<div class="subtitle">Projekt 2: CSV & JSON</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%; left: 5%;">
+							<pre style="height: 90%; margin: unset;"><code data-trim data-noescape>
+								import json
+								import matplotlib.pyplot as plt
+
+								with open('data.json', 'r') as f:
+									data = json.load(f)
+									# Extrahiere Daten
+									jahr = []
+									anzahl = []
+									for eintrag in data['data']:
+										jahr.append(eintrag['Year'])
+										anzahl.append(int(eintrag['Population']))
+									print("Die Daten sind extrahiert.")
+									# Daten Darstellen
+									jahr.reverse()
+									anzahl.reverse()
+									fig, ax = plt.subplots()
+									ax.plot(jahr, anzahl)
+									plt.show()
+							</code></pre>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-ankreuzen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Lösung</div>
+							<div class="subtitle">Projekt 2: CSV & JSON</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%; left: 5%;">
+							<img src="assets/Bevölkerung_USA.png">
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-ankreuzen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
 						</div>
 						<div class="footer">
 							Kurs 23720 - Erste Schritte mit Python<br/>
@@ -1746,46 +1888,6 @@
 								<li>Computer Grundlagen II: Datenkodierung</li>
 								<li>Python Grundlagen II: Datenstrukturen</li>
 								<li>Projekt 2: CSV & JSON</li>
-								<li>Python Grundlagen III: venv, pip und Bibliotheken</li>
-								<li style="font-weight: bolder;">Projekt 3: Web-APIs und Spreadsheets</li>
-								<li>Quellen zum Selbststudium</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
-
-				<!-- https://ipinfo.io/161.185.160.93/geo -->
-				<!-- https://www.wieistmeineip.de/ -->
-
-				<!-- https://api.coindesk.com/v1/bpi/currentprice.json -->
-
-				<!--pyexcel  -->
-				<!-- https://github.com/pyexcel/pyexcel -->
-
-				<!--openpyxl  -->
-				<!-- https://pypi.org/project/openpyxl/ -->
-
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Tag 2</div>
-							<div class="subtitle"> Erste Schritte mit Python</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li>Computer Grundlagen II: Datenkodierung</li>
-								<li>Python Grundlagen II: Datenstrukturen</li>
-								<li>Projekt 2: CSV & JSON</li>
-								<li>Python Grundlagen III: venv, pip und Bibliotheken</li>
-								<li>Projekt 3: Web-APIs und Spreadsheets</li>
 								<li style="font-weight: bolder;">Quellen zum Selbststudium</li>
 							</ul>
 						</div>
