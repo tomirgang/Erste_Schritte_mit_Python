@@ -1,0 +1,1 @@
+""" wetter_tomirgang is a small tool to get the local weather. """
