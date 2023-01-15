@@ -363,11 +363,9 @@
 						<div class="bgfooter"></div>
 						<div class="content">
 							<ul>
-								<li style="font-weight: bolder;">Python Grundlagen III: venv, pip und Bibliotheken</li>
+								<li style="font-weight: bolder;">Computer Grundlagen III: Algorithmen</li>
+								<li>Python Grundlagen III: Funktionen & Bibliotheken</li>
 								<li>Projekt 3: Web-APIs und Spreadsheets</li>
-								<li>Computer Grundlagen III: Algorithmen</li>
-								<li>Python Grundlagen III: Funktionen</li>
-								<li>Projekt 4: ???</li>
 								<li>Quellen zum Selbststudium</li>
 							</ul>
 						</div>
@@ -377,59 +375,6 @@
 						</div>
 					</div>
 				</section>
-
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Bibliotheken</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Wiederverwendbare Programmteile</li>
-								<li>Beispiel: matplotlib</li>
-								<li>Kann weiter Abhängigkeiten benötigen</li>
-							</ul>
-						</div>
-						<div class="image image_right" style="width: 45%;">
-							<pre style="height: 90%; font-size: 100%;"><code data-trim data-noescape>
-								>>> tuple = (1, 3, "Welt")
-								>>> tuple
-								(1, 3, 'Welt')
-								>>> tuple[2]
-								'Welt'
-								>>> x, y, z = tuple
-								>>> x
-								1
-								>>> y
-								3
-								>>> z
-								'Welt'
-							</code></pre>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
-
-
-				<!-- https://ipinfo.io/161.185.160.93/geo -->
-				<!-- https://www.wieistmeineip.de/ -->
-
-				<!-- https://api.coindesk.com/v1/bpi/currentprice.json -->
-
-				<!--pyexcel  -->
-				<!-- https://github.com/pyexcel/pyexcel -->
-
-				<!--openpyxl  -->
-				<!-- https://pypi.org/project/openpyxl/ -->
-
 
 				<section>
 					<div class="wrapper">
@@ -501,11 +446,198 @@
 						<div class="content">
 							<ul>
 								<li>Computer Grundlagen III: Algorithmen</li>
-								<li style="font-weight: bolder;">Python Grundlagen III: Funktionen</li>
-								<li>Projekt 4: ???</li>
-								<li>Python Grundlagen IV: Klassen</li>
-								<li>Projekt 5: ???</li>
+								<li style="font-weight: bolder;">Python Grundlagen III: Funktionen & Bibliotheken</li>
+								<li>Projekt 3: Web-APIs und Spreadsheets</li>
 								<li>Quellen zum Selbststudium</li>
+							</ul>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Funktion</div>
+							<div class="subtitle">Python Grundlagen</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content">
+							<ul>
+								<li>Code-Block mit Namen</li>
+								<li>Eingabe-Parameter</li>
+								<li>Rückgabewert</li>
+							</ul>
+							<pre style="width: 70%;"><code data-trim data-noescape>
+								>>> def maximum(a, b):
+								...     if a > b:
+								...         return a
+								...     else:
+								...         return b
+								... 
+								>>> maximum(5,6)
+								6
+							</code></pre>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Module</div>
+							<div class="subtitle">Python Grundlagen</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content">
+							<ul>
+								<li>Python Datei</li>
+								<li><a class="link_inline" href="https://docs.python.org/3/tutorial/modules.html">Dokumentation</a></li>
+								<li>maximum.py
+									<pre><code data-trim data-noescape>
+										def maximum(a, b):
+											if a > b:
+												return a
+											else:
+												return b
+									</code></pre>
+								</li>
+								<li>programm.py
+									<pre><code data-trim data-noescape>
+										from maximum import maximum
+										print(maximum(7,8))
+									</code></pre>
+								</li>
+							</ul>
+							<pre><code data-trim data-noescape>
+								$ python3 programm.py 
+								8
+							</code></pre>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Bibliotheken</div>
+							<div class="subtitle">Python Grundlagen</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content">
+							<ul>
+								<li>Bibliotheken sind wiederverwendbare Programmteile</li>
+								<li>Bibliotheken können in eigenen Programmen verwendet werden</li>
+								<li>Bibliotheken werden mit "pip" installiert</li>
+								<li>Bibliotheken werden mit "import" verwendet</li>
+								<li>Wiederverwendbare Programmteile</li>
+								<li>Kann weiter Abhängigkeiten benötigen</li>
+							</ul>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Beispiel: matplotlib</div>
+							<div class="subtitle">Python Grundlagen</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content">
+							<ul>
+								<li>matplotlib kann Daten graphisch darstellen</li>
+								<li><a class="link_inline" href="https://matplotlib.org/stable/users/getting_started/index.html#installation-quick-start">matplotlib</a></li>
+								<li>Installation: "pip install matplotlib"</li>
+							</ul>
+							<pre style="width: 60%;"><code data-trim data-noescape>
+								>>> import matplotlib.pyplot as plt
+								>>> x = range(1,10)
+								>>> fig, ax = plt.subplots()
+								>>> ax.plot(x, x)
+								[<matplotlib.lines.Line2D object at 0x7fad4e3fa050>]
+								>>> plt.show()
+							</code></pre>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Python Package Index (PyPI)</div>
+							<div class="subtitle">Python Grundlagen</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 50%;">
+							<ul>
+								<li>Öffentliche Sammlung von Bibliotheken</li>
+								<li><a class="link_inline" href="https://pypi.org/">https://pypi.org/</a></li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/pypi.svg" height="100%">
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Virtuelle Umgebung (venv)</div>
+							<div class="subtitle">Python Grundlagen</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content">
+							<ul>
+								<li>Abhängigkeiten von einem Programm</li>
+								<li>Hilft Versionskonflikte zu vermeiden</li>
+								<li>Erzeugen: python3 -m venv venv</li>
+								<li>Aktivieren:<br>
+									Linux/Mac: source venv/bin/activate<br>
+									Windows: venv\Scripts\activate.bat<br>
+									<a class="link_inline" href="https://docs.python.org/3/library/venv.html">Dokumentation</a></li>
 							</ul>
 						</div>
 						<div class="footer">
@@ -528,10 +660,668 @@
 						<div class="content">
 							<ul>
 								<li>Computer Grundlagen III: Algorithmen</li>
-								<li>Python Grundlagen III: Funktionen</li>
-								<li>Projekt 4: ???</li>
-								<li>Python Grundlagen IV: Klassen</li>
-								<li>Projekt 5: ???</li>
+								<li>Python Grundlagen III: Funktionen & Bibliotheken</li>
+								<li style="font-weight: bolder;">Projekt 3: Web-APIs und Spreadsheets</li>
+								<li>Quellen zum Selbststudium</li>
+							</ul>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Aufgabe</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<ul>
+								<li style="font-weight: bolder;">Teil 1: Web-APIs</li>
+								<li>Teil 1.1: Was ist meine IP?</li>
+								<li>Teil 1.2: IP Info</li>
+								<li>Teil 2: Excel & OpenOffice</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-schreiben.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Teil 1: Web-APIs</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<ul>
+								<li style="font-weight: bolder;">Teil 1.1: Was ist meine IP?<br>
+								Schreibe ein Python Programm das die öffentliche IP des Rechners ermittelt.<br>
+								<a href="https://www.ipify.org/" class="link_inline">https://www.ipify.org/</a></li>
+								<li>Teil 1.2: IP Info<br>
+								Erweitere das Programm um die geographische Region der IP Adresse zu ermitteln<br>
+								<a href="https://ipinfo.io/" class="link_inline">https://ipinfo.io/</a></li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">requests</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<ul>
+								<li>requests ist eine Bibliotheken für Web-Anfragen</li>
+								<li><a class="link_inline" href="https://pypi.org/project/requests/">https://pypi.org/project/requests/</a></li>
+								<li>Installation:
+									<pre><code data-trim data-noescape>
+										$ python3 -m venv venv
+										$ source venv/bin/activate | venv\Scripts\activate.bat
+										$ pip install requests
+									</code></pre>
+								</li>
+							</ul>
+							<pre style="width: 80%;"><code data-trim data-noescape>
+								>>> import requests
+								>>> r = requests.get('https://api.chucknorris.io/jokes/random')
+								>>> if r.status_code != 200:
+								...     print('Fehler!')
+								... else:
+								...     json = r.json()
+								...     print(json['value'])
+								... 
+								jesus did not make Chuck Norris, Chuck Norris made jesus
+							</code></pre>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+				
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Gruppenarbeit</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<div class="image" style="width: 70%;">
+								<img src="assets/Aufgabe-rechnen_Kopf.svg.png" width="100%">
+								<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+							</div>							
+						</div>
+						<div class="image image_right">
+							<img src="assets/Aufgabe-Personen-Gruppe.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Lösung</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%; left: 5%;">
+							<pre><code data-trim data-noescape>
+								import requests
+
+								r = requests.get('https://api.ipify.org?format=json')
+								if r.status_code != 200:
+									print('Fehler!')
+								else:
+									json = r.json()
+									print(f"Die IP ist: {json['ip']}")
+							</code></pre>
+							<pre><code data-trim data-noescape>
+								$ python teil1_1.py
+								Die IP ist: 84.39.77.83
+							</code></pre>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-ankreuzen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Teil 1: Web-APIs</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<ul>
+								<li>Teil 1.1: Was ist meine IP?<br>
+								Schreibe ein Python Programm das die öffentliche IP des Rechners ermittelt.<br>
+								<a href="https://www.ipify.org/" class="link_inline">https://www.ipify.org/</a></li>
+								<li style="font-weight: bolder;">Teil 1.2: IP Info<br>
+								Erweitere das Programm um die geographische Region der IP Adresse zu ermitteln<br>
+								<a href="https://ipinfo.io/" class="link_inline">https://ipinfo.io/</a><br>
+								Hinweis: https://ipinfo.io/161.185.160.93/geo</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Gruppenarbeit</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<div class="image" style="width: 70%;">
+								<img src="assets/Aufgabe-rechnen_Kopf.svg.png" width="100%">
+								<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+							</div>							
+						</div>
+						<div class="image image_right">
+							<img src="assets/Aufgabe-Personen-Gruppe.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Lösung</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%; left: 5%;">
+							<pre><code data-trim data-noescape>
+								import requests
+								import sys
+
+								r = requests.get('https://api.ipify.org?format=json')
+								if r.status_code != 200:
+									print('Fehler, IP konnte nicht ermittelt werden!')
+									sys.exit(1)
+
+								json = r.json()
+								ip = json['ip']
+								print(f"Die IP ist: {ip}")
+
+								geo_url = f'https://ipinfo.io/{ip}/geo'
+								r = requests.get(geo_url)
+								if r.status_code != 200:
+									print('Fehler, Geo-Daten konnten nicht ermittelt werden!')
+									sys.exit(1)
+
+								json = r.json()
+								print(f"Land: {json['country']}\nStadt: {json['city']}\nISP: {json['org']}")
+							</code></pre>
+							<pre><code data-trim data-noescape>
+								$ python teil1_2.py                       
+								Die IP ist: 84.39.77.83
+								Land: DE
+								Stadt: Neumarkt in der Oberpfalz
+								ISP: AS39090 Brandl Services GmbH
+							</code></pre>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-ankreuzen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Aufgabe</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<ul>
+								<li>Teil 1: Web-APIs</li>
+								<li>Teil 1.1: Was ist meine IP?</li>
+								<li>Teil 1.2: IP Info</li>
+								<li style="font-weight: bolder;">Teil 2: Excel & OpenOffice</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-schreiben.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">openpyxl</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<ul>
+								<li>openpyxl ist eine Bibliotheken für Excel Dateien</li>
+								<li><a class="link_inline" href="https://pypi.org/project/openpyxl/">https://pypi.org/project/openpyxl/</a></li>
+								<li>Installation: pip install openpyxl</li>
+							</ul>
+							<pre style="width: 70%; height: 490px; font-size: 48%;"><code data-trim data-noescape>
+								>>> from openpyxl import load_workbook
+								book(filename = 'Employee Sample Data.xlsx')
+								ws = wb.active
+								spalten = [chr(x) for x in range(ord('A'), ord('N'))]
+								for s in spalten:
+									print(ws[f'{s}1'].value)>>> 
+								>>> wb = load_workbook(filename = 'Employee Sample Data.xlsx')
+								>>> ws = wb.active
+								>>> spalten = [chr(x) for x in range(ord('A'), ord('N'))]
+								>>> for s in spalten:
+								...     print(ws[f'{s}1'].value)
+								... 
+								EEID
+								Full Name
+								Job Title
+								...
+							</code></pre>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">pyexcel-ods</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%;">
+							<ul>
+								<li>pyexcel-ods ist eine Bibliotheken für LibreOffice Spreadsheets</li>
+								<li><a class="link_inline" href="https://pypi.org/project/pyexcel-ods/">https://pypi.org/project/pyexcel-ods/</a></li>
+								<li>Installation: pip install pyexcel-ods</li>
+							</ul>
+							<pre style="width: 70%; height: 490px; font-size: 48%;"><code data-trim data-noescape>
+								>>> from collections import OrderedDict
+								>>> from pyexcel_ods import save_data
+								ate({"Meine Daten": [[1, 2, 3], [4, 5, 6]]})
+								save_data("meien_daten.ods", data)>>> 
+								>>> data = OrderedDict()
+								>>> data.update({"Meine Daten": [[1, 2, 3], [4, 5, 6]]})
+								>>> save_data("meien_daten.ods", data)
+							</code></pre>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Teil 2: Excel & OpenOffice</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 70%;">
+							<ul>
+								<li>Datensatz: <a href="https://www.thespreadsheetguru.com/blog/sample-data#employee" class="link_inline">https://www.thespreadsheetguru.com/blog/sample-data#employee</a></li>
+								<li style="font-weight: bolder;">Berechne den Durchschnittsverdienst aller aktiver Angestellter.</li>
+								<li>Schreibe die Namen und Berufstitel aller aktiver Angestellter in ein LibreOffice Calc Dokument.</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Gruppenarbeit</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<div class="image" style="width: 70%;">
+								<img src="assets/Aufgabe-rechnen_Kopf.svg.png" width="100%">
+								<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+							</div>							
+						</div>
+						<div class="image image_right">
+							<img src="assets/Aufgabe-Personen-Gruppe.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Lösung</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%; left: 5%;">
+							<pre style="height: 550px;"><code data-trim data-noescape>
+								from openpyxl import load_workbook
+
+								wb = load_workbook(filename = 'Employee Sample Data.xlsx')
+								ws = wb.active
+								i = 2
+								sum = 0
+								count = 0
+								while ws[f'A{i}'].value:
+									if ws[f'N{i}'].value == '':
+										count = count + 1
+										sum = sum + ws[f'J{i}'].value
+									i = i + 1
+								print("Durchschnittsverdienst: ${:0,.2f}".format(sum/count))
+							</code></pre>
+							<pre><code data-trim data-noescape>
+								$ python teil2.py
+								Durchschnittsverdienst: $114,033.07
+							</code></pre>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-ankreuzen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Teil 2: Excel & OpenOffice</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 70%;">
+							<ul>
+								<li>Datensatz: <a href="https://www.thespreadsheetguru.com/blog/sample-data#employee" class="link_inline">https://www.thespreadsheetguru.com/blog/sample-data#employee</a></li>
+								<li>Berechne den Durchschnittsverdienst aller aktiver Angestellter.</li>
+								<li style="font-weight: bolder;">Schreibe die Namen und Berufstitel aller aktiver Angestellter in ein LibreOffice Calc Dokument.</li>
+							</ul>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Gruppenarbeit</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left">
+							<div class="image" style="width: 70%;">
+								<img src="assets/Aufgabe-rechnen_Kopf.svg.png" width="100%">
+								<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+							</div>							
+						</div>
+						<div class="image image_right">
+							<img src="assets/Aufgabe-Personen-Gruppe.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Lösung</div>
+							<div class="subtitle">Projekt 3: Web-APIs und Spreadsheets</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content_left" style="width: 75%; left: 5%;">
+							<pre style="height: 550px;"><code data-trim data-noescape>
+								...
+								from collections import OrderedDict
+								from pyexcel_ods import save_data
+
+								zeilen = [['Name', 'Berufstitel']]
+								i = 2
+								while ws[f'A{i}'].value:
+									if ws[f'N{i}'].value == '':
+										zeilen.append([ws[f'B{i}'].value, ws[f'C{i}'].value])
+									i = i + 1
+
+								data = OrderedDict()
+								data.update({"Angestellte": zeilen})
+								save_data("angestellte.ods", data)
+							</code></pre>
+						</div>
+						<div class="image image1">
+							<img src="assets/Aufgabe-ankreuzen.svg.png" height="100%">
+							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
+						</div>
+						<div class="image image4">
+							<img src="assets/Python-logo-notext.svg" height="100%">
+							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
+						</div>
+						<div class="footer">
+							Kurs 23720 - Erste Schritte mit Python<br/>
+							Thomas Irgang, thomas@irgang.eu
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="wrapper">
+						<div class="header">
+							<div class="title">Tag 3</div>
+							<div class="subtitle"> Erste Schritte mit Python</div>
+						</div>
+						<div class="decorator"></div>
+						<div class="triangle"></div>
+						<div class="bgimage"></div>
+						<div class="bgfooter"></div>
+						<div class="content">
+							<ul>
+								<li>Computer Grundlagen III: Algorithmen</li>
+								<li>Python Grundlagen III: Funktionen & Bibliotheken</li>
+								<li>Projekt 3: Web-APIs und Spreadsheets</li>
 								<li style="font-weight: bolder;">Quellen zum Selbststudium</li>
 							</ul>
 						</div>
