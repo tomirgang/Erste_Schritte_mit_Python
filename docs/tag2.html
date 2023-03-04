@@ -1,818 +1,930 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>Erste Schritte mit Python</title>
+    <title>Erste Schritte mit Python</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/white.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
 
-		<style>
-			section {
-				width: 100%;
-				aspect-ratio: 16 / 9;
-				border: 1px solid gray;
-			}
+    <style>
+      section {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 1px solid gray;
+      }
 
-			.wrapper {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				background-image: url("assets/Logo_vhs-LKRoth-quer-rgb.jpg");
-				background-repeat: no-repeat, no-repeat;
-				background-size: 25%;
+      .wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-image: url("assets/Logo_vhs-LKRoth-quer-rgb.jpg");
+        background-repeat: no-repeat, no-repeat;
+        background-size: 25%;
+      }
 
-			}
+      .header {
+        display: table;
+        position: absolute;
+        background-color: darkgreen;
+        color: white;
+        top: 10%;
+        left: 5%;
+        width: 90%;
+        box-shadow: 10px 5px 5px green;
+        z-index: 10;
+        font-size: 160%;
+      }
 
-			.header {
-				display: table;
-				position: absolute;
-				background-color: darkgreen;
-				color: white;
-				top: 10%;
-				left: 5%;
-				width: 90%;
-				box-shadow: 10px 5px 5px green;
-				z-index: 10;
-				font-size: 160%;
-			}
+      .decorator {
+        position: absolute;
+        z-index: 9;
+        width: 8%;
+        height: 18%;
+        top: 2%;
+        left: 80%;
+        background-color: black;
+        box-shadow: 10px 5px 5px grey;
+      }
 
-			.decorator {
-				position: absolute;
-				z-index: 9;
-				width: 8%;
-				height: 18%;
-				top: 2%;
-				left: 80%;
-				background-color: black;
-				box-shadow: 10px 5px 5px grey;
-			}
+      .triangle {
+        position: absolute;
+        z-index: 9;
+        bottom: 0%;
+        left: 0%;
+        border-left: 80px solid darkgreen;
+        border-right: 80px solid transparent;
+        border-bottom: 80px solid darkgreen;
+        border-top: 80px solid transparent;
+        display: inline-block;
+      }
 
-			.triangle {
-				position: absolute;
-				z-index: 9;
-				bottom: 0%;
-				left: 0%;
-				border-left: 80px solid darkgreen;
-				border-right: 80px solid transparent;
-				border-bottom: 80px solid darkgreen;
-				border-top: 80px solid transparent;
-				display: inline-block;
-			}
+      .bgimage {
+        position: absolute;
+        z-index: 7;
+        bottom: 130px;
+        right: 60px;
+        width: 200px;
+        height: 300px;
+        background-image: url("assets/background_esp.png");
+        background-size: 100% 100%;
+        opacity: 0.25;
+        transform: rotate(45deg);
+      }
 
-			.bgimage {
-				position: absolute;
-				z-index: 7;
-				bottom: 130px;
-				right: 60px;
-				width: 200px;
-				height: 300px;
-				background-image: url("assets/background_esp.png");
-				background-size: 100% 100%;
-				opacity: 0.25;
-				transform: rotate(45deg);
-			}
+      .bgfooter {
+        position: absolute;
+        z-index: 6;
+        bottom: 0%;
+        right: 0%;
+        width: 100%;
+        height: 100px;
+        background-color: darkgreen;
+        opacity: 0.5;
+      }
 
-			.bgfooter {
-				position: absolute;
-				z-index: 6;
-				bottom: 0%;
-				right: 0%;
-				width: 100%;
-				height: 100px;
-				background-color: darkgreen;
-				opacity: 0.5;
-			}
+      .footer {
+        position: absolute;
+        z-index: 7;
+        bottom: 20px;
+        right: 200px;
+        font-size: 20pt;
+        text-align: right;
+      }
 
-			.footer {
-				position: absolute;
-				z-index: 7;
-				bottom: 20px;
-				right: 200px;
-				font-size: 20pt;
-				text-align: right;
-			}
+      .content {
+        position: absolute;
+        z-index: 10;
+        left: 10%;
+        width: 80%;
+        top: 21%;
+        bottom: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 125%;
+      }
 
-			.content {
-				position: absolute;
-				z-index: 10;
-				left: 10%;
-				width: 80%;
-				top: 21%;
-				bottom: 75px;
-				display: flex;
-				align-items: center;
-        		justify-content: center;
-				flex-wrap: wrap;
-				font-size: 125%;
-			}
+      .content_section {
+        position: absolute;
+        z-index: 10;
+        left: 10%;
+        width: 80%;
+        top: 21%;
+        bottom: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 150%;
+      }
 
-			.content_section {
-				position: absolute;
-				z-index: 10;
-				left: 10%;
-				width: 80%;
-				top: 21%;
-				bottom: 75px;
-				display: flex;
-				align-items: center;
-        		justify-content: center;
-				flex-wrap: wrap;
-				font-size: 150%;
-			}
+      .content_left {
+        position: absolute;
+        z-index: 10;
+        left: 10%;
+        width: 45%;
+        top: 21%;
+        bottom: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        flex-wrap: wrap;
+        text-align: left;
+        font-size: 125%;
+      }
 
-			.content_left {
-				position: absolute;
-				z-index: 10;
-				left: 10%;
-				width: 45%;
-				top: 21%;
-				bottom: 75px;
-				display: flex;
-				align-items: center;
-        		justify-content: left;
-				flex-wrap: wrap;
-				text-align: left;
-				font-size: 125%;
-			}
+      .link {
+        font-size: 70%;
+        color: gray;
+        text-overflow: wrap;
+      }
 
-			.link {
-				font-size: 70%;
-				color: gray;
-				text-overflow: wrap;
-			}
+      .link_inline {
+        font-size: 100%;
+        color: gray;
+        text-overflow: wrap;
+      }
 
-			.link_inline {
-				font-size: 100%;
-				color: gray;
-				text-overflow: wrap;
-			}
+      .wrapper a {
+        color: gray;
+      }
 
-			.wrapper a {
-				color: gray;
-			}
+      .title {
+        display: table-cell;
+        text-align: left;
+        padding-left: 20px;
+      }
 
-			.title {
-				display: table-cell;
-				text-align: left;
-				padding-left: 20px;
-			}
+      .subtitle {
+        display: table-cell;
+        font-size: 50%;
+        text-align: right;
+        padding-left: 20px;
+        padding-right: 100px;
+      }
 
-			.subtitle {
-				display: table-cell;
-				font-size: 50%;
-				text-align: right;
-				padding-left: 20px;
-				padding-right: 100px;
-			}
+      .image {
+        position: absolute;
+        text-overflow: wrap;
+        width: 22%;
+      }
 
-			.image {
-				position: absolute;
-				text-overflow: wrap;
-				width: 22%;
-			}
+      .image img {
+        margin: unset;
+        object-fit: contain;
+      }
 
-			.image img {
-				margin: unset;
-				object-fit: contain;
-			}
+      .image_right {
+        z-index: 8;
+        top: 22%;
+        right: 3%;
+        height: 65%;
+        width: 42%;
+      }
 
-			.image_right {
-				z-index: 8;
-				top: 22%;
-				right: 3%;
-				height: 65%;
-				width: 42%;
-			}
+      .image_left {
+        z-index: 8;
+        top: 22%;
+        left: 3%;
+        height: 65%;
+        width: 42%;
+      }
 
-			.image_left {
-				z-index: 8;
-				top: 22%;
-				left: 3%;
-				height: 65%;
-				width: 42%;
-			}
+      .image1 {
+        z-index: 7;
+        top: 22%;
+        right: 1%;
+        height: 25%;
+      }
 
-			.image1 {
-				z-index: 7;
-				top: 22%;
-				right: 1%;
-				height: 25%;
-			}
+      .image2 {
+        z-index: 8;
+        top: 22%;
+        right: 22%;
+        height: 25%;
+      }
 
-			.image2 {
-				z-index: 8;
-				top: 22%;
-				right: 22%;
-				height: 25%;
-			}
+      .image3 {
+        position: absolute;
+        z-index: 7;
+        top: 55%;
+        right: 22%;
+        height: 25%;
+      }
 
-			.image3 {
-				position: absolute;
-				z-index: 7;
-				top: 55%;
-				right: 22%;
-				height: 25%;
-			}
+      .image4 {
+        position: absolute;
+        z-index: 8;
+        top: 55%;
+        right: 1%;
+        height: 25%;
+      }
 
-			.image4 {
-				position: absolute;
-				z-index: 8;
-				top: 55%;
-				right: 1%;
-				height: 25%;
-			}
+      .image5 {
+        position: absolute;
+        z-index: 8;
+        top: 22%;
+        right: 42%;
+        height: 25%;
+      }
 
-			.image5 {
-				position: absolute;
-				z-index: 8;
-				top: 22%;
-				right: 42%;
-				height: 25%;
-			}
+      .image6 {
+        position: absolute;
+        z-index: 8;
+        top: 55%;
+        right: 42%;
+        height: 25%;
+      }
 
-			.image6 {
-				position: absolute;
-				z-index: 8;
-				top: 55%;
-				right: 42%;
-				height: 25%;
-			}
+      .copyright {
+        font-size: 50%;
+        color: darkgray;
+      }
 
-			.copyright {
-				font-size: 50%;
-				color: darkgray;
-			}
+      .cite {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        font-size: 80%;
+        font-style: italic;
+        width: 75%;
+        overflow: auto;
+      }
 
-			.cite {
-				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-				font-size: 80%;
-				font-style: italic;
-				width: 75%;
-				overflow: auto;
-			}
+      code {
+        font-size: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Kurs 23720</div>
+              <div class="subtitle">Thomas Irgang</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_section">Erste Schritte mit Python</div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-			code {
-				font-size: 100%;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Kurs 23720</div>
-							<div class="subtitle">Thomas Irgang</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_section">
-							Erste Schritte mit Python
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Kurs 23720</div>
+              <div class="subtitle">Thomas Irgang</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">Erste Schritte mit Python</div>
+            <div class="image image2">
+              <img src="assets/tag1.png" width="100%" />
+              <a
+                class="copyright"
+                href="http://tomirgang.de/Erste_Schritte_mit_Python/"
+                >Folien Tag 1</a
+              >
+            </div>
+            <div class="image image1">
+              <img src="assets/tag2.png" width="100%" />
+              <a
+                class="copyright"
+                href="http://tomirgang.de/Erste_Schritte_mit_Python/tag2.html"
+                >Folien Tag 2</a
+              >
+            </div>
+            <div class="image image3">
+              <img src="assets/tag3.png" width="100%" />
+              <a
+                class="copyright"
+                href="http://tomirgang.de/Erste_Schritte_mit_Python/tag3.html"
+                >Folien Tag 3</a
+              >
+            </div>
+            <div class="image image4">
+              <img src="assets/tag4.png" width="100%" />
+              <a
+                class="copyright"
+                href="http://tomirgang.de/Erste_Schritte_mit_Python/tag4.html"
+                >Folien Tag 4</a
+              >
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Kurs 23720</div>
-							<div class="subtitle">Thomas Irgang</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							Erste Schritte mit Python
-						</div>
-						<div class="image image2">
-							<img src="assets/tag1.png" width="100%">
-							<a class="copyright" href="http://tomirgang.de/Erste_Schritte_mit_Python/">Folien Tag 1</a>
-						</div>
-						<div class="image image1">
-							<img src="assets/tag2.png" width="100%">
-							<a class="copyright" href="http://tomirgang.de/Erste_Schritte_mit_Python/tag2.html">Folien Tag 2</a>
-						</div>
-						<div class="image image3">
-							<img src="assets/tag3.png" width="100%">
-							<a class="copyright" href="http://tomirgang.de/Erste_Schritte_mit_Python/tag3.html">Folien Tag 3</a>
-						</div>
-						<div class="image image4">
-							<img src="assets/tag4.png" width="100%">
-							<a class="copyright" href="http://tomirgang.de/Erste_Schritte_mit_Python/tag4.html">Folien Tag 4</a>
-						</div>
-						<div class="image image6" style="z-index: 10;">
-							<img src="assets/writeup.png" width="100%">
-							<a class="copyright" href="https://github.com/tomirgang/Erste_Schritte_mit_Python">Write up</a>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Inhalte</div>
+              <div class="subtitle">Erste Schritte mit Python</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_section">
+              <ul>
+                <li>Tag 1: Grundlagen und erste Schritte</li>
+                <li style="font-weight: bolder">Tag 2: Daten</li>
+                <li>Tag 3: Bibliotheken und Funktionen</li>
+                <li>Tag 4: Klassen und Programme</li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Inhalte</div>
-							<div class="subtitle">Erste Schritte mit Python</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_section">
-							<ul>
-								<li>Tag 1: Grundlagen und erste Schritte</li>
-								<li style="font-weight: bolder;">Tag 2: Daten</li>
-								<li>Tag 3: Bibliotheken und Funktionen</li>
-								<li>Tag 4: Klassen und Programme</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Tag 2</div>
+              <div class="subtitle">Erste Schritte mit Python</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li style="font-weight: bolder">
+                  Computer Grundlagen II: Datenkodierung
+                </li>
+                <li>Python Grundlagen II: Datenstrukturen</li>
+                <li>Projekt 2: CSV & JSON</li>
+                <li>Quellen zum Selbststudium</li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Tag 2</div>
-							<div class="subtitle"> Erste Schritte mit Python</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li style="font-weight: bolder;">Computer Grundlagen II: Datenkodierung</li>
-								<li>Python Grundlagen II: Datenstrukturen</li>
-								<li>Projekt 2: CSV & JSON</li>
-								<li>Quellen zum Selbststudium</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Computer Grundlagen</div>
+              <div class="subtitle">Erste Schritte mit Python</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li style="font-weight: bolder">Datenkodierung</li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Computer Grundlagen</div>
-							<div class="subtitle"> Erste Schritte mit Python</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li style="font-weight: bolder;">Datenkodierung</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Binäre Daten</div>
+              <div class="subtitle">Datenkodierung</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>Computer kennen nur 0 und 1</li>
+                <li>
+                  Nachricht (Syntax):<br />
+                  Folge von 0en und 1en
+                </li>
+                <li>
+                  Information (Semantik):<br />
+                  Bedeutung der Nachricht
+                </li>
+              </ul>
+            </div>
+            <div class="image image_right">
+              <img src="assets/512px-Binary-code.png" />
+              <div class="copyright">
+                Graph+sas, CC BY-SA 4.0
+                <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia
+                Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Binäre Daten</div>
-							<div class="subtitle">Datenkodierung</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Computer kennen nur 0 und 1</li>
-								<li>Nachricht (Syntax): Folge von 0en und 1en</li>
-								<li>Information (Semantik): Bedeutung der Nachricht</li>
-							</ul>
-						</div>
-						<div class="image image_right">
-							<img src="assets/512px-Binary-code.png">
-							<div class="copyright">Graph+sas, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Dualsystem (Binärsystem)</div>
+              <div class="subtitle">Datenkodierung</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>Wertigkeit der Stellen: $2^i$</li>
+                <li>
+                  $101_2 $<br />$= 1 * 4 + 0 * 2 + 1 * 1 $<br />$= 5_{10}$
+                </li>
+              </ul>
+            </div>
+            <div class="image image1">
+              <img
+                src="assets/Value_of_digits_in_the_Binary_numeral_system.svg.png"
+              />
+              <div class="copyright">
+                User000name, CC BY-SA 4.0
+                <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia
+                Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img
+                src="assets/Values_of_digits_in_the_Decimal_numeral_system.svg.png"
+              />
+              <div class="copyright">
+                User000name, CC BY-SA 4.0
+                <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia
+                Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Dualsystem (Binärsystem)</div>
-							<div class="subtitle">Datenkodierung</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Wertigkeit der Stellen: $2^i$</li>
-								<li>$101_2 $<br>$= 1 * 4 + 0 * 2 + 1 * 1 $<br>$= 5_{10}$</li>
-							</ul>
-						</div>
-						<div class="image image1">
-							<img src="assets/Value_of_digits_in_the_Binary_numeral_system.svg.png">
-							<div class="copyright">User000name, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Values_of_digits_in_the_Decimal_numeral_system.svg.png">
-							<div class="copyright">User000name, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Hexadezimalsystem</div>
+              <div class="subtitle">Datenkodierung</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>Wertigkeit der Stellen: $16^i$</li>
+                <li>$10_{16} = 1 * 16 + 0 * 1 = 16_{10}$</li>
+                <li>$AF_{16} $<br />$= 10 * 16 + 15 * 1 $<br />$= 175_{10}$</li>
+              </ul>
+            </div>
+            <div class="image image1">
+              <img src="assets/Hexadecimal_digit.png" />
+              <div class="copyright">
+                Hr.hanafi, CC BY-SA 3.0
+                <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia
+                Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img
+                src="assets/Values_of_digits_in_the_Decimal_numeral_system.svg.png"
+              />
+              <div class="copyright">
+                User000name, CC BY-SA 4.0
+                <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia
+                Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Hexadezimalsystem</div>
-							<div class="subtitle">Datenkodierung</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Wertigkeit der Stellen: $16^i$</li>
-								<li>$10_{16} = 1 * 16 + 0 * 1 = 16_{10}$</li>
-								<li>$AF_{16} $<br>$= 10 * 16 + 15 * 1 $<br>$= 175_{10}$</li>
-							</ul>
-						</div>
-						<div class="image image1">
-							<img src="assets/Hexadecimal_digit.png">
-							<div class="copyright">Hr.hanafi, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Values_of_digits_in_the_Decimal_numeral_system.svg.png">
-							<div class="copyright">User000name, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Binär in Hex</div>
+              <div class="subtitle">Datenkodierung</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li>
+                  maximaler Wert einer 4-stelligen Binärzahl:<br />$8+4+2+1=15$
+                </li>
+                <li>
+                  maximaler Wert einer 1-stelligen Hexadezimalzahl:<br />$F_{16}
+                  = 15$
+                </li>
+                <li>
+                  4 Zeichen binär $XXXX_2$<br />= 1 Zeichen hexadezimal $X_{16}$
+                </li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Binär in Hex</div>
-							<div class="subtitle">Datenkodierung</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li>maximaler Wert einer 4-stelligen Binärzahl:<br>$8+4+2+1=15$</li>
-								<li>maximaler Wert einer 1-stelligen Hexadezimalzahl:<br>$F_{16} = 15$</li>
-								<li>4 Zeichen binär $XXXX_2$<br>= 1 Zeichen hexadezimal</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Binär in Hex</div>
+              <div class="subtitle">Datenkodierung</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li>Binär-Daten lassen sich kompakt Hexadezimal darstellen</li>
+                <li>$1100_{2}=12_{10}=A_{16}$</li>
+                <li>$1100 0101_{2}$ = 1100 0101 = $A5_{16}$</li>
+                <li>1 Byte = 8 Bit<br />$XX_{16}$ = $XXXX.XXXX_{2}$</li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Binär in Hex</div>
-							<div class="subtitle">Datenkodierung</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li>Binär-Daten lassen sich kompakt Hexadezimal darstellen</li>
-								<li>$1100_{2}=12_{10}=A_{16}$</li>
-								<li>$1100 0101_{2}$ = 1100 0101 = $A5_{16}$</li>
-								<li>1 Byte = 8 Bit<br>$XX_{16}$ = $XXXX.XXXX_{2}$</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">X-Bit Systeme</div>
+              <div class="subtitle">Datenkodierung</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li>X-Bit entspricht der Größe der CPU Register</li>
+                <li>
+                  Microcontroller: 8-Bit (1 Byte) / 16-Bit<br />
+                  Heutige PCs: 64bit (alte PCs: 32bit)
+                </li>
+                <li>
+                  X-Bit ist die Speicherbandbreite<br />
+                  32bit = max. 4GB RAM<br />
+                  64bit = max. 16 Exabyte (16 Milliarden Gigabyte) RAM
+                </li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">X-Bit Systeme</div>
-							<div class="subtitle">Datenkodierung</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li>X-Bit entspricht der Größe der CPU Register</li>
-								<li>Microcontroller: 8-Bit (1 Byte) / 16-Bit<br>
-									Heutige PCs: 64bit (alte PCs: 32bit)</li>
-								<li>X-Bit ist die Speicherbandbreite<br>
-									32bit = max. 4GB RAM<br>
-									64bit = max. 16 Exabyte (16 Milliarden Gigabyte) RAM</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Zweierkomplement</div>
+              <div class="subtitle">Datenkodierung</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li>Zahlenraum:<br />$-2^{n-1}, ... , 0, ... -2^{n-1}$</li>
+                <li>8bit: -127...127</li>
+                <li>32bit: -2.147.483.648 ... 2.147.483.648</li>
+                <li>Negative Zahlen: Binärwert invertieren und 1 addieren</li>
+                <li>
+                  4 = 0000 0100<br />invertiert: 1111 1011<br />1 addieren: 1111
+                  1100 = -4
+                </li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Zweierkomplement</div>
-							<div class="subtitle">Datenkodierung</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li>Zahlenraum:<br>$-2^{n-1}, ... , 0, ... -2^{n-1}$</li>
-								<li>8bit: -127...127</li>
-								<li>32bit: -2.147.483.648 ... 2.147.483.648</li>
-								<li>Negative Zahlen: Binärwert invertieren und 1 addieren</li>
-								<li>4 = 0000 0100<br>invertiert: 1111 1011<br>1 addieren: 1111 1100 = -4</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Grenzen der Darstellung</div>
+              <div class="subtitle">Datenkodierung</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>Grenzen der Darstellung können zu Problemen führen</li>
+                <li>
+                  Reddit:
+                  <a
+                    class="link_inline"
+                    href="https://www.golem.de/news/programmierung-reddit-kommentare-laufen-bei-32-bit-ueber-2212-170494.html"
+                    >Reddit-Kommentare laufen bei 32-Bit über</a
+                  >
+                </li>
+                <li>
+                  Google:
+                  <a
+                    class="link_inline"
+                    href="https://www.heise.de/security/meldung/l-f-Integer-Ueberlauf-Gangnam-Style-2480061.html"
+                    >l+f: Integer-Überlauf Gangnam-Style</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="image image1">
+              <img src="assets/Reddit.png" />
+              <a
+                class="copyright"
+                href="https://www.golem.de/news/programmierung-reddit-kommentare-laufen-bei-32-bit-ueber-2212-170494.html"
+                >Reddit-Kommentare laufen bei 32-Bit über</a
+              >
+            </div>
+            <div class="image image4">
+              <img src="assets/heise_google.png" />
+              <a
+                class="copyright"
+                href="https://www.heise.de/security/meldung/l-f-Integer-Ueberlauf-Gangnam-Style-2480061.html"
+                >l+f: Integer-Überlauf Gangnam-Style</a
+              >
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Grenzen der Darstellung</div>
-							<div class="subtitle">Datenkodierung</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Grenzen der Darstellung können zu Problemen führen</li>
-								<li>Reddit: <a class="link_inline" href="https://www.golem.de/news/programmierung-reddit-kommentare-laufen-bei-32-bit-ueber-2212-170494.html">Reddit-Kommentare laufen bei 32-Bit über</a></li>
-								<li>Google: <a class="link_inline" href="https://www.heise.de/security/meldung/l-f-Integer-Ueberlauf-Gangnam-Style-2480061.html">l+f: Integer-Überlauf Gangnam-Style</a></li>
-							</ul>
-						</div>
-						<div class="image image1">
-							<img src="assets/Reddit.png">
-							<a class="copyright" href="https://www.golem.de/news/programmierung-reddit-kommentare-laufen-bei-32-bit-ueber-2212-170494.html">Reddit-Kommentare laufen bei 32-Bit über</a>
-						</div>
-						<div class="image image4">
-							<img src="assets/heise_google.png">
-							<a class="copyright" href="https://www.heise.de/security/meldung/l-f-Integer-Ueberlauf-Gangnam-Style-2480061.html">l+f: Integer-Überlauf Gangnam-Style</a>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Gleitkommazahlen</div>
+              <div class="subtitle">Datenkodierung</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li>
+                  Gleitkommazahlen müssen als Binärmuster darstellt werden
+                </li>
+                <li>
+                  IEEE 754: $x=$$s$$2^e$$m$<br />
+                  Vorzeichen s (1 bit), Exponent e, Mantisse m<br />
+                  negative Exponenten: Biaswert wird addiert
+                </li>
+                <li>
+                  32 Bit Darstellung: 3.14<br />=0 2^1 1.5700000524520874<br />=
+                  0 1000.0000 10.0100.0111.1010.1110.00010
+                </li>
+                <li>Dargestellte Zahl: 3.1399998664855957031250000</li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Gleitkommazahlen</div>
-							<div class="subtitle">Datenkodierung</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li>Gleitkommazahlen müssen als Binärmuster darstellt werden</li>
-								<li>IEEE 754: $x=$$s$$2^e$$m$<br>
-								Vorzeichen s (1 bit), Exponent e, Mantisse m<br>
-								negative Exponenten: Biaswert wird addiert</li>
-								<li>32 Bit Darstellung: 3.14<br>=0 2^1 1.5700000524520874<br>= 0 1000.0000 10.0100.0111.1010.1110.00010</li>
-								<li>Dargestellte Zahl: 3.1399998664855957031250000</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Textdarstellung</div>
+              <div class="subtitle">Datenkodierung</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li>Kodierung pro Zeichen</li>
+                <li>
+                  einfachste Kodierung: ASCII<br />
+                  ein Zeichen pro Byte, sehr kleiner Zeichenraum
+                </li>
+                <li>
+                  aktueller Standard: UTF8<br />
+                  variable Zeichenlänge, (fast) alle Zeichen darstellbar
+                </li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Textdarstellung</div>
-							<div class="subtitle">Datenkodierung</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li>Kodierung pro Zeichen</li>
-								<li>einfachste Kodierung: ASCII<br>
-									ein Zeichen pro Byte, sehr kleiner Zeichenraum</li>
-								<li>aktueller Standard: UTF8<br>
-									variable Zeichenlänge, (fast) alle Zeichen darstellbar</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Textdarstellung</div>
+              <div class="subtitle">Datenkodierung</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li>
+                  Text: Hallo, Welt!<br />
+                  ASCII: 48 61 6c 6c 6f 2c 20 57 65 6c 74 21<br />
+                  UTF-8: 48 61 6c 6c 6f 2c 20 57 65 6c 74 21<br />
+                  UTF-16: 0048 0061 006c 006c 006f 002c 0020 0057 0065 006c 0074
+                  0021
+                </li>
+                <li>
+                  Zeichen 😊<br />
+                  ASCII: Nicht darstellbar<br />
+                  UTF-8: F0 9F 98 8A<br />
+                  UTF-16: D83D DE0A
+                </li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Textdarstellung</div>
-							<div class="subtitle">Datenkodierung</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li>Text: Hallo, Welt!<br>
-									ASCII: 48 61 6c 6c 6f 2c 20 57 65 6c 74 21<br>
-									UTF-8:  48 61 6c 6c 6f 2c 20 57 65 6c 74 21<br>
-									UTF-16: 0048 0061 006c 006c 006f 002c 0020 0057 0065 006c 0074 0021</li>
-								<li>Zeichen 😊<br>
-									ASCII: Nicht darstellbar<br>
-									UTF-8: F0 9F 98 8A<br>
-									UTF-16: D83D DE0A</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Tag 2</div>
+              <div class="subtitle">Erste Schritte mit Python</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li>Computer Grundlagen II: Datenkodierung</li>
+                <li style="font-weight: bolder">
+                  Python Grundlagen II: Datenstrukturen
+                </li>
+                <li>Projekt 2: CSV & JSON</li>
+                <li>Quellen zum Selbststudium</li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Tag 2</div>
-							<div class="subtitle"> Erste Schritte mit Python</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li>Computer Grundlagen II: Datenkodierung</li>
-								<li style="font-weight: bolder;">Python Grundlagen II: Datenstrukturen</li>
-								<li>Projekt 2: CSV & JSON</li>
-								<li>Quellen zum Selbststudium</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Programmiersprachen</div>
+              <div class="subtitle">Python Grundlagen</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>
+                  Python ist eine:
+                  <ul>
+                    <li>höhere Sprache</li>
+                    <li>interpretierte Sprache</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="image image_right">
+              <img src="assets/Programmiersprachen.svg" height="100%" />
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Programmiersprachen</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Python ist eine:
-									<ul>
-										<li>höhere Sprache</li>
-										<li>interpretierte Sprache</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-						<div class="image image_right">
-							<img src="assets/Programmiersprachen.svg" height="100%">
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Blöcke</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Python verwendet Einrückung um Blöcke zu bilden</li>
-								<li>Viele andere Sprachen: { }</li>
-							</ul>
-						</div>
-						<div class="image image_right" style="width: 45%;">
-							<pre style="height: 90%; font-size: 100%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Blöcke</div>
+              <div class="subtitle">Python Grundlagen</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>Python verwendet Einrückung um Blöcke zu bilden</li>
+                <li>Viele andere Sprachen: { }</li>
+              </ul>
+            </div>
+            <div class="image image_right" style="width: 45%">
+              <pre
+                style="height: 90%; font-size: 100%"
+              ><code data-trim data-noescape>
 								>>> for i in range(1,10):
 								...     print(i)
 								... 
 							</code></pre>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Zahlen</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Datentypen:
-									<ul>
-										<li>Ganzzahl: int</li>
-										<li>Dezimalzahl: float</li>
-										<li>Komplexe Zahl: complex</li>
-									</ul>
-								</li>
-								<li><a href="https://docs.python.org/3/library/stdtypes.html?highlight=range#range" class="link_inline">Built-in Types</a></li>
-								<li>Python 3: int is unbeschränkt</li>
-							</ul>
-							<pre style="height: 35%; font-size: 65%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Zahlen</div>
+              <div class="subtitle">Python Grundlagen</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>
+                  Datentypen:
+                  <ul>
+                    <li>Ganzzahl: int</li>
+                    <li>Dezimalzahl: float</li>
+                    <li>Komplexe Zahl: complex</li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://docs.python.org/3/library/stdtypes.html?highlight=range#range"
+                    class="link_inline"
+                    >Built-in Types</a
+                  >
+                </li>
+                <li>Python 3: int is unbeschränkt</li>
+              </ul>
+              <pre
+                style="height: 35%; font-size: 65%"
+              ><code data-trim data-noescape>
 								Python 3.10.6
 								>>> import sys
 								>>> sys.float_info
@@ -820,9 +932,11 @@
 									max=1.7976931348623157e+308, ...
 									min=2.2250738585072014e-308, ...)
 							</code></pre>
-						</div>
-						<div class="image image_right" style="width: 45%;">
-							<pre style="height: 91%; font-size: 70%;"><code data-trim data-noescape>
+            </div>
+            <div class="image image_right" style="width: 45%">
+              <pre
+                style="height: 91%; font-size: 70%"
+              ><code data-trim data-noescape>
 								>>> a = 5
 								>>> type(a)
 								&lt;class 'int'&gt;
@@ -842,89 +956,127 @@
 								>>> sys.maxint
 								9223372036854775807
 							</code></pre>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Wikipedia: Feld (Array)</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<div class="cite">
-								Ein Feld (englisch [...] array [...]) ist in der Informatik eine Datenstruktur-Variante, mit deren Verwendung „viele gleichartig strukturierte Daten [...] verarbeitet werden sollen“. Der Zugriff auf bestimmte Inhalte eines Felds erfolgt mit Hilfe von Indizes, die dessen Position bezeichnen.
-							</div>
-						</div>
-						<div class="image image1">
-							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
-							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
-							<a class="copyright" href="https://de.wikipedia.org/wiki/Feld_(Datentyp)">https://de.wikipedia.org/wiki/Feld_(Datentyp)</a>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Wikipedia: Feld (Array)</div>
+              <div class="subtitle">Python Grundlagen</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <div class="cite">
+                Ein Feld (englisch [...] array [...]) ist in der Informatik eine
+                Datenstruktur-Variante, mit deren Verwendung „viele gleichartig
+                strukturierte Daten [...] verarbeitet werden sollen“. Der
+                Zugriff auf bestimmte Inhalte eines Felds erfolgt mit Hilfe von
+                Indizes, die dessen Position bezeichnen.
+              </div>
+            </div>
+            <div class="image image1">
+              <img
+                src="assets/512px-Wikipedia_logo_(svg).svg.png"
+                height="100%"
+              />
+              <div class="copyright">
+                penubag, CC BY-SA 3.0
+                <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia
+                Commons
+              </div>
+              <a
+                class="copyright"
+                href="https://de.wikipedia.org/wiki/Feld_(Datentyp)"
+                >https://de.wikipedia.org/wiki/Feld_(Datentyp)</a
+              >
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Wikipedia: verkettete Liste</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<div class="cite">
-								Eine verkettete Liste ist eine dynamische Datenstruktur, in der Datenelemente geordnet gespeichert sind. Bei ihrer Erstellung braucht die maximale Anzahl der Elemente nicht festgelegt zu werden, und die Anzahl darf während der Laufzeit beliebig variieren.
-							</div>
-						</div>
-						<div class="image image1">
-							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
-							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
-							<a class="copyright" href="https://de.wikipedia.org/wiki/Liste_(Datenstruktur)">https://de.wikipedia.org/wiki/Liste_(Datenstruktur)</a>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Wikipedia: verkettete Liste</div>
+              <div class="subtitle">Python Grundlagen</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <div class="cite">
+                Eine verkettete Liste ist eine dynamische Datenstruktur, in der
+                Datenelemente geordnet gespeichert sind. Bei ihrer Erstellung
+                braucht die maximale Anzahl der Elemente nicht festgelegt zu
+                werden, und die Anzahl darf während der Laufzeit beliebig
+                variieren.
+              </div>
+            </div>
+            <div class="image image1">
+              <img
+                src="assets/512px-Wikipedia_logo_(svg).svg.png"
+                height="100%"
+              />
+              <div class="copyright">
+                penubag, CC BY-SA 3.0
+                <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia
+                Commons
+              </div>
+              <a
+                class="copyright"
+                href="https://de.wikipedia.org/wiki/Liste_(Datenstruktur)"
+                >https://de.wikipedia.org/wiki/Liste_(Datenstruktur)</a
+              >
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Listen</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Höhere Datenstruktur</li>
-								<li>Kann verschiedene Werte aufnehmen</li>
-								<li>Kann über Index zugegriffen werden</li>
-								<li>Neue Elemente können angehängt werden</li>
-								<li><a href="https://docs.python.org/3/library/stdtypes.html?highlight=range#sequence-types-list-tuple-range" class="link_inline">Dokumentation</a></li>
-							</ul>
-						</div>
-						<div class="image image_right" style="width: 45%;">
-							<pre style="height: 90%; font-size: 100%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Listen</div>
+              <div class="subtitle">Python Grundlagen</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>Höhere Datenstruktur</li>
+                <li>Kann verschiedene Werte aufnehmen</li>
+                <li>Kann über Index zugegriffen werden</li>
+                <li>Neue Elemente können angehängt werden</li>
+                <li>
+                  <a
+                    href="https://docs.python.org/3/library/stdtypes.html?highlight=range#sequence-types-list-tuple-range"
+                    class="link_inline"
+                    >Dokumentation</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="image image_right" style="width: 45%">
+              <pre
+                style="height: 90%; font-size: 100%"
+              ><code data-trim data-noescape>
 								>>> list = [5, 3, "Hallo"]
 								>>> list
 								[5, 3, 'Hallo']
@@ -936,36 +1088,44 @@
 								>>> list
 								[5, 3, 'Hallo', 3]
 							</code></pre>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Tuple</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Höhere Datenstruktur</li>
-								<li>Kann verschiedene Werte aufnehmen</li>
-								<li>Kann über Index zugegriffen werden</li>
-								<li>Feste Länge</li>
-								<li>Unterstützt "unpacking"</li>
-								<li><a href="https://docs.python.org/3/library/stdtypes.html?highlight=range#sequence-types-list-tuple-range" class="link_inline">Dokumentation</a></li>
-							</ul>
-						</div>
-						<div class="image image_right" style="width: 45%;">
-							<pre style="height: 90%; font-size: 100%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Tuple</div>
+              <div class="subtitle">Python Grundlagen</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>Höhere Datenstruktur</li>
+                <li>Kann verschiedene Werte aufnehmen</li>
+                <li>Kann über Index zugegriffen werden</li>
+                <li>Feste Länge</li>
+                <li>Unterstützt "unpacking"</li>
+                <li>
+                  <a
+                    href="https://docs.python.org/3/library/stdtypes.html?highlight=range#sequence-types-list-tuple-range"
+                    class="link_inline"
+                    >Dokumentation</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="image image_right" style="width: 45%">
+              <pre
+                style="height: 90%; font-size: 100%"
+              ><code data-trim data-noescape>
 								>>> tuple = (1, 3, "Welt")
 								>>> tuple
 								(1, 3, 'Welt')
@@ -979,95 +1139,138 @@
 								>>> z
 								'Welt'
 							</code></pre>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Wikipedia: Hashfunktion</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<div class="cite">
-								Eine Hashfunktion [...] ist eine Abbildung, die eine große Eingabemenge, die Schlüssel, auf eine kleinere Zielmenge, die Hashwerte, abbildet. Eine Hashfunktion ist daher im Allgemeinen nicht injektiv.
-							</div>
-							<div>
-								<img src="assets/Hash_table_4_1_1_0_0_1_0_LL (1).svg" height="400px">
-								<div class="copyright">Jorge Stolfi, Public domain, via Wikimedia Commons</div>
-							</div>
-						</div>
-						<div class="image image1">
-							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
-							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
-							<a class="copyright" href="https://de.wikipedia.org/wiki/Hashfunktion">https://de.wikipedia.org/wiki/Hashfunktion</a>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Wikipedia: Hashfunktion</div>
+              <div class="subtitle">Python Grundlagen</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <div class="cite">
+                Eine Hashfunktion [...] ist eine Abbildung, die eine große
+                Eingabemenge, die Schlüssel, auf eine kleinere Zielmenge, die
+                Hashwerte, abbildet. Eine Hashfunktion ist daher im Allgemeinen
+                nicht injektiv.
+              </div>
+              <div>
+                <img
+                  src="assets/Hash_table_4_1_1_0_0_1_0_LL (1).svg"
+                  height="400px"
+                />
+                <div class="copyright">
+                  Jorge Stolfi, Public domain, via Wikimedia Commons
+                </div>
+              </div>
+            </div>
+            <div class="image image1">
+              <img
+                src="assets/512px-Wikipedia_logo_(svg).svg.png"
+                height="100%"
+              />
+              <div class="copyright">
+                penubag, CC BY-SA 3.0
+                <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia
+                Commons
+              </div>
+              <a
+                class="copyright"
+                href="https://de.wikipedia.org/wiki/Hashfunktion"
+                >https://de.wikipedia.org/wiki/Hashfunktion</a
+              >
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Wikipedia: Hashtabelle</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<div class="cite">
-								In der Informatik bezeichnet man eine spezielle Indexstruktur als Hashtabelle (englisch hash table oder hash map) [...]. Sie wird verwendet, um Datenelemente in einer großen Datenmenge zu suchen bzw. aufzufinden [...].
-							</div>
-							<div>
-								<img src="assets/HASHTB12.svg.png" height="400px">
-								<div class="copyright">Public domain, via Wikimedia Commons</div>
-							</div>
-						</div>
-						<div class="image image1">
-							<img src="assets/512px-Wikipedia_logo_(svg).svg.png" height="100%">
-							<div class="copyright">penubag, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</div>
-							<a class="copyright" href="https://de.wikipedia.org/wiki/Hashtabelle">https://de.wikipedia.org/wiki/Hashtabelle</a>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Wikipedia: Hashtabelle</div>
+              <div class="subtitle">Python Grundlagen</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <div class="cite">
+                In der Informatik bezeichnet man eine spezielle Indexstruktur
+                als Hashtabelle (englisch hash table oder hash map) [...]. Sie
+                wird verwendet, um Datenelemente in einer großen Datenmenge zu
+                suchen bzw. aufzufinden [...].
+              </div>
+              <div>
+                <img src="assets/HASHTB12.svg.png" height="400px" />
+                <div class="copyright">
+                  Public domain, via Wikimedia Commons
+                </div>
+              </div>
+            </div>
+            <div class="image image1">
+              <img
+                src="assets/512px-Wikipedia_logo_(svg).svg.png"
+                height="100%"
+              />
+              <div class="copyright">
+                penubag, CC BY-SA 3.0
+                <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia
+                Commons
+              </div>
+              <a
+                class="copyright"
+                href="https://de.wikipedia.org/wiki/Hashtabelle"
+                >https://de.wikipedia.org/wiki/Hashtabelle</a
+              >
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Dict(ionary)</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Hashtabelle</li>
-								<li>Kann über Schlüssel zugegriffen werden</li>
-								<li><a href="https://docs.python.org/3/library/stdtypes.html?highlight=range#mapping-types-dict" class="link_inline">Dokumentation</a></li>
-							</ul>
-						</div>
-						<div class="image image_right" style="width: 45%;">
-							<pre style="height: 90%; font-size: 100%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Dict(ionary)</div>
+              <div class="subtitle">Python Grundlagen</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>Hashtabelle</li>
+                <li>Kann über Schlüssel zugegriffen werden</li>
+                <li>
+                  <a
+                    href="https://docs.python.org/3/library/stdtypes.html?highlight=range#mapping-types-dict"
+                    class="link_inline"
+                    >Dokumentation</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="image image_right" style="width: 45%">
+              <pre
+                style="height: 90%; font-size: 100%"
+              ><code data-trim data-noescape>
 								>>> dict = {}
 								>>> type(dict)
 								<class 'dict'>
@@ -1075,161 +1278,211 @@
 								>>> dict
 								{'Hallo': 'Welt'}
 							</code></pre>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Set (Menge)</div>
-							<div class="subtitle">Python Grundlagen</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>Menge</li>
-								<li>Kann jedes Element nur einmal enthalten</li>
-								<li><a href="https://docs.python.org/3/library/stdtypes.html?highlight=range#set-types-set-frozenset" class="link_inline">Dokumentation</a></li>
-							</ul>
-						</div>
-						<div class="image image_right" style="width: 45%;">
-							<pre style="height: 90%; font-size: 100%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Set (Menge)</div>
+              <div class="subtitle">Python Grundlagen</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>Menge</li>
+                <li>Kann jedes Element nur einmal enthalten</li>
+                <li>
+                  <a
+                    href="https://docs.python.org/3/library/stdtypes.html?highlight=range#set-types-set-frozenset"
+                    class="link_inline"
+                    >Dokumentation</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="image image_right" style="width: 45%">
+              <pre
+                style="height: 90%; font-size: 100%"
+              ><code data-trim data-noescape>
 								>>> list
 								[5, 3, 'Hallo', 3]
 								>>> set = set(list)
 								>>> set
 								{'Hallo', 3, 5}
 							</code></pre>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Tag 2</div>
-							<div class="subtitle"> Erste Schritte mit Python</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li>Computer Grundlagen II: Datenkodierung</li>
-								<li>Python Grundlagen II: Datenstrukturen</li>
-								<li style="font-weight: bolder;">Projekt 2: CSV & JSON</li>
-								<li>Quellen zum Selbststudium</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Tag 2</div>
+              <div class="subtitle">Erste Schritte mit Python</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li>Computer Grundlagen II: Datenkodierung</li>
+                <li>Python Grundlagen II: Datenstrukturen</li>
+                <li style="font-weight: bolder">Projekt 2: CSV & JSON</li>
+                <li>Quellen zum Selbststudium</li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Aufgabe</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<ul>
-								<li style="font-weight: bolder;">Teil 1: DWD Warnzellen CSV<br>
-								<a class="link_inline" href="https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.csv;jsessionid=D598DEE8CED64B6E03D7BA6F592E113C.live21073?__blob=publicationFile&v=5">dwd.de https://t.ly/-ajyu</a></li>
-								<li>Teil 2: Open Power System Data Wetter Daten CSV<br>
-								<a class="link_inline" href="https://data.open-power-system-data.org/weather_data/2020-09-16/weather_data.csv">open-power-system-data.org https://t.ly/IbeO</a></li>
-								<li>Teil 3: Data USA Bevölkerung JSON<br>
-								<a class="link_inline" href="https://datausa.io/api/data?drilldowns=Nation&measures=Population">datausa.io https://t.ly/8Py-</a></li>
-							</ul>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-schreiben.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Aufgabe</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <ul>
+                <li style="font-weight: bolder">
+                  Teil 1: DWD Warnzellen CSV<br />
+                  <a
+                    class="link_inline"
+                    href="https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.csv;jsessionid=D598DEE8CED64B6E03D7BA6F592E113C.live21073?__blob=publicationFile&v=5"
+                    >dwd.de https://t.ly/-ajyu</a
+                  >
+                </li>
+                <li>
+                  Teil 2: Open Power System Data Wetter Daten CSV<br />
+                  <a
+                    class="link_inline"
+                    href="https://data.open-power-system-data.org/weather_data/2020-09-16/weather_data.csv"
+                    >open-power-system-data.org https://t.ly/IbeO</a
+                  >
+                </li>
+                <li>
+                  Teil 3: Data USA Bevölkerung JSON<br />
+                  <a
+                    class="link_inline"
+                    href="https://datausa.io/api/data?drilldowns=Nation&measures=Population"
+                    >datausa.io https://t.ly/8Py-</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-schreiben.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Dateien lesen</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<ul>
-								<li>with open(DATEI, MODUS) as f<br>
-								<a class="link_inline" href="https://docs.python.org/3/library/functions.html?highlight=open#open">Python Dokumentation</a></li>
-							</ul>
-							<pre style="width: 60%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Dateien lesen</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <ul>
+                <li>
+                  with open(DATEI, MODUS) as f<br />
+                  <a
+                    class="link_inline"
+                    href="https://docs.python.org/3/library/functions.html?highlight=open#open"
+                    >Python Dokumentation</a
+                  >
+                </li>
+              </ul>
+              <pre style="width: 60%"><code data-trim data-noescape>
 								>>> with open('cap_warncellids_csv.csv', 'r') as f:
 								...     print(f.readline())
 								... 
 								# WARNCELLID;NAME;KENNUNG (NUTS);KURZNAME;KENNUNG (SIGN)
 							</code></pre>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-informationen.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">csv</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<ul>
-								<li>csv<br>
-								<a class="link_inline" href="https://docs.python.org/3/library/csv.html">Python Dokumentation</a></li>
-								<li>Bibliotheken für CVS Daten</li>
-							</ul>
-							<pre style="margin: unset; width: 90%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">csv</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <ul>
+                <li>
+                  csv<br />
+                  <a
+                    class="link_inline"
+                    href="https://docs.python.org/3/library/csv.html"
+                    >Python Dokumentation</a
+                  >
+                </li>
+                <li>Bibliotheken für CVS Daten</li>
+              </ul>
+              <pre
+                style="margin: unset; width: 90%"
+              ><code data-trim data-noescape>
 								>>> import csv
 								>>> with open('cap_warncellids_csv.csv', newline='') as csvfile:
 								...     reader = csv.reader(csvfile, delimiter=';', quotechar='"')
@@ -1240,38 +1493,49 @@
 								['101001000', 'Stadt Flensburg', 'DEF01', 'Flensburg', 'FLX']
 								['101002000', 'Stadt Kiel', 'DEF02', 'Kiel', 'KIX']
 							</code></pre>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-informationen.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">if</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<ul>
-								<li>Bedingte Verzweigung: if<br>
-								<a class="link_inline" href="https://docs.python.org/3/tutorial/controlflow.html">Python Dokumentation</a></li>
-							</ul>
-							<pre style="width: 60%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">if</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <ul>
+                <li>
+                  Bedingte Verzweigung: if<br />
+                  <a
+                    class="link_inline"
+                    href="https://docs.python.org/3/tutorial/controlflow.html"
+                    >Python Dokumentation</a
+                  >
+                </li>
+              </ul>
+              <pre style="width: 60%"><code data-trim data-noescape>
 								>>> namen = ['Paul', 'Peter', 'Gustav']
 								>>> for name in namen:
 								...     if name == 'Paul':
@@ -1285,93 +1549,116 @@
 								Gefunden: Peter
 								Nicht gefunden: Gustav
 							</code></pre>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-informationen.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Aufgabe</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 70%;">
-							<ul>
-								<li>Teil 1: DWD Warnzellen CSV<br>
-								<a class="link_inline" href="https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.csv;jsessionid=D598DEE8CED64B6E03D7BA6F592E113C.live21073?__blob=publicationFile&v=5">dwd.de https://t.ly/-ajyu</a><br>
-								Schreibe ein Python Programm das aus die Warnzellen ID von Roth ausgibt.</li>
-							</ul>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-schreiben.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Aufgabe</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 70%">
+              <ul>
+                <li>
+                  Teil 1: DWD Warnzellen CSV<br />
+                  <a
+                    class="link_inline"
+                    href="https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.csv;jsessionid=D598DEE8CED64B6E03D7BA6F592E113C.live21073?__blob=publicationFile&v=5"
+                    >dwd.de https://t.ly/-ajyu</a
+                  ><br />
+                  Schreibe ein Python Programm das aus die Warnzellen ID von
+                  Roth ausgibt.
+                </li>
+              </ul>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-schreiben.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Gruppenarbeit</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<div class="image" style="width: 70%;">
-								<img src="assets/Aufgabe-rechnen_Kopf.svg.png" width="100%">
-								<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-							</div>							
-						</div>
-						<div class="image image_right">
-							<img src="assets/Aufgabe-Personen-Gruppe.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Gruppenarbeit</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <div class="image" style="width: 70%">
+                <img src="assets/Aufgabe-rechnen_Kopf.svg.png" width="100%" />
+                <div class="copyright">
+                  A.Spielhoff, CC0, via Wikimedia Commons
+                </div>
+              </div>
+            </div>
+            <div class="image image_right">
+              <img src="assets/Aufgabe-Personen-Gruppe.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Lösung</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%; left: 5%;">
-							<pre style="height: 40%; margin: unset;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Lösung</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%; left: 5%">
+              <pre
+                style="height: 40%; margin: unset"
+              ><code data-trim data-noescape>
 								import csv
 
 								with open('cap_warncellids_csv.csv', newline='') as csvfile:
@@ -1381,78 +1668,114 @@
 											print(f'{row[1]}: {row[0]}')
 							</code></pre>
 
-							<pre style="height: 30%; margin: unset;"><code data-trim data-noescape>
+              <pre
+                style="height: 30%; margin: unset"
+              ><code data-trim data-noescape>
 								> python teil1.py   
 								Kreis Roth: 109576000
 								Stadt Roth: 809576143
 							</code></pre>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-ankreuzen.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-ankreuzen.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Aufgabe</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<ul>
-								<li>Teil 1: DWD Warnzellen CSV<br>
-								<a class="link_inline" href="https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.csv;jsessionid=D598DEE8CED64B6E03D7BA6F592E113C.live21073?__blob=publicationFile&v=5">dwd.de https://t.ly/-ajyu</a></li>
-								<li style="font-weight: bolder;">Teil 2: Open Power System Data Wetter Daten CSV<br>
-								<a class="link_inline" href="https://data.open-power-system-data.org/weather_data/2020-09-16/weather_data.csv">open-power-system-data.org https://t.ly/IbeO</a></li>
-								<li>Teil 3: Data USA Bevölkerung JSON<br>
-								<a class="link_inline" href="https://datausa.io/api/data?drilldowns=Nation&measures=Population">datausa.io https://t.ly/8Py-</a></li>
-							</ul>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-schreiben.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Aufgabe</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <ul>
+                <li>
+                  Teil 1: DWD Warnzellen CSV<br />
+                  <a
+                    class="link_inline"
+                    href="https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.csv;jsessionid=D598DEE8CED64B6E03D7BA6F592E113C.live21073?__blob=publicationFile&v=5"
+                    >dwd.de https://t.ly/-ajyu</a
+                  >
+                </li>
+                <li style="font-weight: bolder">
+                  Teil 2: Open Power System Data Wetter Daten CSV<br />
+                  <a
+                    class="link_inline"
+                    href="https://data.open-power-system-data.org/weather_data/2020-09-16/weather_data.csv"
+                    >open-power-system-data.org https://t.ly/IbeO</a
+                  >
+                </li>
+                <li>
+                  Teil 3: Data USA Bevölkerung JSON<br />
+                  <a
+                    class="link_inline"
+                    href="https://datausa.io/api/data?drilldowns=Nation&measures=Population"
+                    >datausa.io https://t.ly/8Py-</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-schreiben.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">enumerate</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<ul>
-								<li>enumerate "nummeriert" Listen<br>
-								<a class="link_inline" href="https://docs.python.org/3/library/functions.html?highlight=enumerate#enumerate">Python Dokumentation</a></li>
-							</ul>
-							<pre style="width: 60%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">enumerate</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <ul>
+                <li>
+                  enumerate "nummeriert" Listen<br />
+                  <a
+                    class="link_inline"
+                    href="https://docs.python.org/3/library/functions.html?highlight=enumerate#enumerate"
+                    >Python Dokumentation</a
+                  >
+                </li>
+              </ul>
+              <pre style="width: 60%"><code data-trim data-noescape>
 								>>> namen = ['Paul', 'Peter', 'Gustav']
 								>>> for i, name in enumerate(namen):
 								...     print(i, name)
@@ -1461,38 +1784,49 @@
 								1 Peter
 								2 Gustav
 							</code></pre>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-informationen.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Listen slicing</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<ul>
-								<li>Python kann "list slicing"<br>
-								<a class="link_inline" href="https://docs.python.org/3/library/functions.html#slice">Python Dokumentation</a></li>
-							</ul>
-							<pre style="width: 60%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Teillisten (list slicing)</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <ul>
+                <li>
+                  Python kann Teillisten (list slicing)<br />
+                  <a
+                    class="link_inline"
+                    href="https://docs.python.org/3/library/functions.html#slice"
+                    >Python Dokumentation</a
+                  >
+                </li>
+              </ul>
+              <pre style="width: 60%"><code data-trim data-noescape>
 								>>> liste = [1,2,3,4,5,6,7,8,9]
 								>>> liste[:5]
 								[1, 2, 3, 4, 5]
@@ -1503,94 +1837,117 @@
 								>>> liste[::2]
 								[1, 3, 5, 7, 9]
 							</code></pre>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-informationen.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Aufgabe</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 70%;">
-							<ul>
-								<li>Teil 2: Open Power System Data Wetter Daten CSV<br>
-									<a class="link_inline" href="https://data.open-power-system-data.org/weather_data/2020-09-16/weather_data.csv">open-power-system-data.org https://t.ly/IbeO</a><br>
-								Stelle einen Temperaturwert von Deutschland (Spalte DE_temperature) für den 1.1. jedes Jahres graphisch dar.</li>
-								<li>Hinweis: Jeder 8760te Wert</li>
-							</ul>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-schreiben.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Aufgabe</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 70%">
+              <ul>
+                <li>
+                  Teil 2: Open Power System Data Wetter Daten CSV<br />
+                  <a
+                    class="link_inline"
+                    href="https://data.open-power-system-data.org/weather_data/2020-09-16/weather_data.csv"
+                    >open-power-system-data.org https://t.ly/IbeO</a
+                  ><br />
+                  Stelle einen Temperaturwert von Deutschland (Spalte
+                  DE_temperature) für den 1.1. jedes Jahres graphisch dar.
+                </li>
+                <li>Hinweis: Jeder 8760te Wert</li>
+              </ul>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-schreiben.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Gruppenarbeit</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<div class="image" style="width: 70%;">
-								<img src="assets/Aufgabe-rechnen_Kopf.svg.png" width="100%">
-								<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-							</div>							
-						</div>
-						<div class="image image_right">
-							<img src="assets/Aufgabe-Personen-Gruppe.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Gruppenarbeit</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <div class="image" style="width: 70%">
+                <img src="assets/Aufgabe-rechnen_Kopf.svg.png" width="100%" />
+                <div class="copyright">
+                  A.Spielhoff, CC0, via Wikimedia Commons
+                </div>
+              </div>
+            </div>
+            <div class="image image_right">
+              <img src="assets/Aufgabe-Personen-Gruppe.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Lösung</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%; left: 5%;">
-							<pre style="height: 90%; margin: unset;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Lösung</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%; left: 5%">
+              <pre
+                style="height: 90%; margin: unset"
+              ><code data-trim data-noescape>
 								import csv
 								import matplotlib.pyplot as plt
 
@@ -1612,109 +1969,152 @@
 									print("Die Daten sind extrahiert.")
 									...
 							</code></pre>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-ankreuzen.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-ankreuzen.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Lösung</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%; left: 5%;">
-							<pre style="height: 30%; margin: unset;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Lösung</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%; left: 5%">
+              <pre
+                style="height: 30%; margin: unset"
+              ><code data-trim data-noescape>
 									...
 									# Daten Darstellen
 									fig, ax = plt.subplots()
 									ax.plot(zeit[::8760], temp[::8760])
 									plt.show()
 							</code></pre>
-							<img src="assets/projekt2_teil2.png">
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-ankreuzen.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+              <img src="assets/projekt2_teil2.png" />
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-ankreuzen.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Aufgabe</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<ul>
-								<li>Teil 1: DWD Warnzellen CSV<br>
-								<a class="link_inline" href="https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.csv;jsessionid=D598DEE8CED64B6E03D7BA6F592E113C.live21073?__blob=publicationFile&v=5">dwd.de https://t.ly/-ajyu</a></li>
-								<li>Teil 2: Open Power System Data Wetter Daten CSV<br>
-								<a class="link_inline" href="https://data.open-power-system-data.org/weather_data/2020-09-16/weather_data.csv">open-power-system-data.org https://t.ly/IbeO</a></li>
-								<li style="font-weight: bolder;">Teil 3: Data USA Bevölkerung JSON<br>
-								<a class="link_inline" href="https://datausa.io/api/data?drilldowns=Nation&measures=Population">datausa.io https://t.ly/8Py-</a></li>
-							</ul>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-schreiben.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Aufgabe</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <ul>
+                <li>
+                  Teil 1: DWD Warnzellen CSV<br />
+                  <a
+                    class="link_inline"
+                    href="https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.csv;jsessionid=D598DEE8CED64B6E03D7BA6F592E113C.live21073?__blob=publicationFile&v=5"
+                    >dwd.de https://t.ly/-ajyu</a
+                  >
+                </li>
+                <li>
+                  Teil 2: Open Power System Data Wetter Daten CSV<br />
+                  <a
+                    class="link_inline"
+                    href="https://data.open-power-system-data.org/weather_data/2020-09-16/weather_data.csv"
+                    >open-power-system-data.org https://t.ly/IbeO</a
+                  >
+                </li>
+                <li style="font-weight: bolder">
+                  Teil 3: Data USA Bevölkerung JSON<br />
+                  <a
+                    class="link_inline"
+                    href="https://datausa.io/api/data?drilldowns=Nation&measures=Population"
+                    >datausa.io https://t.ly/8Py-</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-schreiben.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">JSON (JavaScript Object Notation)</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
-							<ul>
-								<li>json<br>
-								<a class="link_inline" href="https://docs.python.org/3/library/json.html">Python Dokumentation</a></li>
-								<li>Bibliotheken für JSON Daten</li>
-							</ul>
-							<pre style="margin: unset; width: 90%;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">JSON (JavaScript Object Notation)</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%">
+              <ul>
+                <li>
+                  json<br />
+                  <a
+                    class="link_inline"
+                    href="https://docs.python.org/3/library/json.html"
+                    >Python Dokumentation</a
+                  >
+                </li>
+                <li>Bibliotheken für JSON Daten</li>
+              </ul>
+              <pre
+                style="margin: unset; width: 90%"
+              ><code data-trim data-noescape>
 								>>> import json
 								>>> data = None
 								>>> with open('data.json', 'r') as f:
@@ -1723,93 +2123,115 @@
 								>>> print(data['data'][0])
 								{'ID Nation': '01000US', 'Nation': 'United States', 'ID Year': 2020, 'Year': '2020', 'Population': 326569308, 'Slug Nation': 'united-states'}
 							</code></pre>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-informationen.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-informationen.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Aufgabe</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 70%;">
-							<ul>
-								<li>Teil 3: Data USA Bevölkerung JSON<br>
-									<a class="link_inline" href="https://datausa.io/api/data?drilldowns=Nation&measures=Population">datausa.io https://t.ly/8Py-</a><br>
-								Stelle die Bevölkerungsentwicklung in den USA graphisch dar.</li>
-							</ul>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-schreiben.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Aufgabe</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 70%">
+              <ul>
+                <li>
+                  Teil 3: Data USA Bevölkerung JSON<br />
+                  <a
+                    class="link_inline"
+                    href="https://datausa.io/api/data?drilldowns=Nation&measures=Population"
+                    >datausa.io https://t.ly/8Py-</a
+                  ><br />
+                  Stelle die Bevölkerungsentwicklung in den USA graphisch dar.
+                </li>
+              </ul>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-schreiben.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Gruppenarbeit</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<div class="image" style="width: 70%;">
-								<img src="assets/Aufgabe-rechnen_Kopf.svg.png" width="100%">
-								<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-							</div>							
-						</div>
-						<div class="image image_right">
-							<img src="assets/Aufgabe-Personen-Gruppe.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Gruppenarbeit</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <div class="image" style="width: 70%">
+                <img src="assets/Aufgabe-rechnen_Kopf.svg.png" width="100%" />
+                <div class="copyright">
+                  A.Spielhoff, CC0, via Wikimedia Commons
+                </div>
+              </div>
+            </div>
+            <div class="image image_right">
+              <img src="assets/Aufgabe-Personen-Gruppe.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Lösung</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%; left: 5%;">
-							<pre style="height: 90%; margin: unset;"><code data-trim data-noescape>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Lösung</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%; left: 5%">
+              <pre
+                style="height: 90%; margin: unset"
+              ><code data-trim data-noescape>
 								import json
 								import matplotlib.pyplot as plt
 
@@ -1829,203 +2251,262 @@
 									ax.plot(jahr, anzahl)
 									plt.show()
 							</code></pre>
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-ankreuzen.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-ankreuzen.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Lösung</div>
-							<div class="subtitle">Projekt 2: CSV & JSON</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%; left: 5%;">
-							<img src="assets/Bevölkerung_USA.png">
-						</div>
-						<div class="image image1">
-							<img src="assets/Aufgabe-ankreuzen.svg.png" height="100%">
-							<div class="copyright">A.Spielhoff, CC0, via Wikimedia Commons</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/Python-logo-notext.svg" height="100%">
-							<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Lösung</div>
+              <div class="subtitle">Projekt 2: CSV & JSON</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left" style="width: 75%; left: 5%">
+              <img src="assets/Bevölkerung_USA.png" />
+            </div>
+            <div class="image image1">
+              <img src="assets/Aufgabe-ankreuzen.svg.png" height="100%" />
+              <div class="copyright">
+                A.Spielhoff, CC0, via Wikimedia Commons
+              </div>
+            </div>
+            <div class="image image4">
+              <img src="assets/Python-logo-notext.svg" height="100%" />
+              <div class="copyright">
+                www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via
+                Wikimedia Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Tag 2</div>
-							<div class="subtitle"> Erste Schritte mit Python</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content">
-							<ul>
-								<li>Computer Grundlagen II: Datenkodierung</li>
-								<li>Python Grundlagen II: Datenstrukturen</li>
-								<li>Projekt 2: CSV & JSON</li>
-								<li style="font-weight: bolder;">Quellen zum Selbststudium</li>
-							</ul>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Tag 2</div>
+              <div class="subtitle">Erste Schritte mit Python</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content">
+              <ul>
+                <li>Computer Grundlagen II: Datenkodierung</li>
+                <li>Python Grundlagen II: Datenstrukturen</li>
+                <li>Projekt 2: CSV & JSON</li>
+                <li style="font-weight: bolder">Quellen zum Selbststudium</li>
+              </ul>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Quellen zum Selbststudium (Deutsch)</div>
-							<div class="subtitle"> Erste Schritte mit Python</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li>YouTube Video Reihe:<br>
-									<a class="link_inline" href="https://www.youtube.com/playlist?list=PLhC_4AWNg9rnM_qAPyUU4Wo1kJoOAMC6_">https://www.youtube.com/@Gravitar</a></li>
-								<li><a class="link_inline" href="https://www.python-kurs.eu/python3_kurs.php">https://www.python-kurs.eu/python3_kurs.php</a></li>
-								<li><a class="link_inline" href="https://www.python-lernen.de/">https://www.python-lernen.de/</a></li>
-								<li><a class="link_inline" href="https://www.python-forum.de/">https://www.python-forum.de/</a></li>
-								<li>Buch: Python von Kopf bis Fuß: Aktuell zu Python 3</li>
-							</ul>
-						</div>
-						<div class="image image2">
-							<img src="assets/a_beautiful_code_in_python.png" height="100%">
-							<div class="copyright">Youtube, A beautiful Code in Python</div>
-						</div>
-						<div class="image image1">
-							<img src="assets/python-kurs.eu.png" height="100%">
-							<div class="copyright">python-kurs.eu</div>
-						</div>
-						<div class="image image3">
-							<img src="assets/python-lernen.de.png" height="100%">
-							<div class="copyright">python-lernen.de</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/python-forum.de.png" height="100%">
-							<div class="copyright">python-forum.de</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Quellen zum Selbststudium (Deutsch)</div>
+              <div class="subtitle">Erste Schritte mit Python</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>
+                  YouTube Video Reihe:<br />
+                  <a
+                    class="link_inline"
+                    href="https://www.youtube.com/playlist?list=PLhC_4AWNg9rnM_qAPyUU4Wo1kJoOAMC6_"
+                    >https://www.youtube.com/@Gravitar</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="link_inline"
+                    href="https://www.python-kurs.eu/python3_kurs.php"
+                    >https://www.python-kurs.eu/python3_kurs.php</a
+                  >
+                </li>
+                <li>
+                  <a class="link_inline" href="https://www.python-lernen.de/"
+                    >https://www.python-lernen.de/</a
+                  >
+                </li>
+                <li>
+                  <a class="link_inline" href="https://www.python-forum.de/"
+                    >https://www.python-forum.de/</a
+                  >
+                </li>
+                <li>Buch: Python von Kopf bis Fuß: Aktuell zu Python 3</li>
+              </ul>
+            </div>
+            <div class="image image2">
+              <img src="assets/a_beautiful_code_in_python.png" height="100%" />
+              <div class="copyright">Youtube, A beautiful Code in Python</div>
+            </div>
+            <div class="image image1">
+              <img src="assets/python-kurs.eu.png" height="100%" />
+              <div class="copyright">python-kurs.eu</div>
+            </div>
+            <div class="image image3">
+              <img src="assets/python-lernen.de.png" height="100%" />
+              <div class="copyright">python-lernen.de</div>
+            </div>
+            <div class="image image4">
+              <img src="assets/python-forum.de.png" height="100%" />
+              <div class="copyright">python-forum.de</div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Quellen zum Selbststudium (Englisch)</div>
-							<div class="subtitle"> Erste Schritte mit Python</div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li><a class="link_inline" href="https://docs.python.org/3.11/tutorial/">The Python Tutorial</a></li>
-								<li><a class="link_inline" href="https://docs.python-guide.org/"></a>The Hitchhiker's Guide to Python</li>
-								<li><a class="link_inline" href="https://www.python-lernen.de/">https://www.python-lernen.de/</a></li>
-								<li>Buch: Introducing Python: Modern Computing in Simple Packages</li>
-							</ul>
-						</div>
-						<div class="image image1">
-							<img src="assets/python-kurs.eu.png" height="100%">
-							<div class="copyright">The Python Tutorial</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/python_tutorial.png" height="100%">
-							<div class="copyright">The Hitchhiker's Guide to Python</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Quellen zum Selbststudium (Englisch)</div>
+              <div class="subtitle">Erste Schritte mit Python</div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <ul>
+                <li>
+                  <a
+                    class="link_inline"
+                    href="https://docs.python.org/3.11/tutorial/"
+                    >The Python Tutorial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="link_inline"
+                    href="https://docs.python-guide.org/"
+                  ></a
+                  >The Hitchhiker's Guide to Python
+                </li>
+                <li>
+                  <a class="link_inline" href="https://www.python-lernen.de/"
+                    >https://www.python-lernen.de/</a
+                  >
+                </li>
+                <li>
+                  Buch: Introducing Python: Modern Computing in Simple Packages
+                </li>
+              </ul>
+            </div>
+            <div class="image image1">
+              <img src="assets/python-kurs.eu.png" height="100%" />
+              <div class="copyright">The Python Tutorial</div>
+            </div>
+            <div class="image image4">
+              <img src="assets/python_tutorial.png" height="100%" />
+              <div class="copyright">The Hitchhiker's Guide to Python</div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<div class="wrapper">
-						<div class="header">
-							<div class="title">Erste Schritte mit Python</div>
-							<div class="subtitle"></div>
-						</div>
-						<div class="decorator"></div>
-						<div class="triangle"></div>
-						<div class="bgimage"></div>
-						<div class="bgfooter"></div>
-						<div class="content_left">
-							<div class="image" style="width: 60%;">
-								<img src="assets/Python-logo-notext.svg" width="200%">
-								<div class="copyright">www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>, via Wikimedia Commons</div>
-								<a class="link" href="tag3.html">Tag 3</a>
-							</div>							
-						</div>
-						<div class="image image_right">
-							<img src="assets/Question_mark_trio.png" height="100%">
-							<div class="copyright">Per A.J. Andersson, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons</div>
-						</div>
-						<div class="footer">
-							Kurs 23720 - Erste Schritte mit Python<br/>
-							Thomas Irgang, thomas@irgang.eu
-						</div>
-					</div>
-				</section>
-
-			</div>
-		</div>
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script src="plugin/math/math.js"></script>
-		<script>
-			Reveal.initialize({
-				hash: true,
-				width: 1920,
-  				height: 1080,
-				// Factor of the display size that should remain empty around
-				// the content
-  				margin: 0,
-  				// Bounds for smallest/largest possible scale to apply to content
-  				minScale: 0.2,
-  				maxScale: 3,
-				controls: true,
-				slideNumber: true,
-				mouseWheel: true,
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax2 ]
-			});
-		</script>
-	</body>
+        <section>
+          <div class="wrapper">
+            <div class="header">
+              <div class="title">Erste Schritte mit Python</div>
+              <div class="subtitle"></div>
+            </div>
+            <div class="decorator"></div>
+            <div class="triangle"></div>
+            <div class="bgimage"></div>
+            <div class="bgfooter"></div>
+            <div class="content_left">
+              <div class="image" style="width: 60%">
+                <img src="assets/Python-logo-notext.svg" width="200%" />
+                <div class="copyright">
+                  www.python.org, GPL <http://www.gnu.org/licenses/gpl.html>,
+                  via Wikimedia Commons
+                </div>
+                <a class="link" href="tag3.html">Tag 3</a>
+              </div>
+            </div>
+            <div class="image image_right">
+              <img src="assets/Question_mark_trio.png" height="100%" />
+              <div class="copyright">
+                Per A.J. Andersson, CC BY-SA 4.0
+                <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia
+                Commons
+              </div>
+            </div>
+            <div class="footer">
+              Kurs 23720 - Erste Schritte mit Python<br />
+              Thomas Irgang, thomas@irgang.eu
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        width: 1920,
+        height: 1080,
+        // Factor of the display size that should remain empty around
+        // the content
+        margin: 0,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+        maxScale: 3,
+        controls: true,
+        slideNumber: true,
+        mouseWheel: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.MathJax2,
+        ],
+      });
+    </script>
+  </body>
 </html>

@@ -315,10 +315,6 @@
 							<img src="assets/tag4.png" width="100%">
 							<a class="copyright" href="http://tomirgang.de/Erste_Schritte_mit_Python/tag4.html">Folien Tag 4</a>
 						</div>
-						<div class="image image6" style="z-index: 10;">
-							<img src="assets/writeup.png" width="100%">
-							<a class="copyright" href="https://github.com/tomirgang/Erste_Schritte_mit_Python">Write up</a>
-						</div>
 						<div class="footer">
 							Kurs 23720 - Erste Schritte mit Python<br/>
 							Thomas Irgang, thomas@irgang.eu
@@ -417,7 +413,7 @@
 								<li>Ausführbarkeit: jeder Schritt muss (eindeutig) ausführbar sein</li>
 								<li>Dynamische Finitheit: darf nur endlich viel Speicher verwenden</li>
 								<li>Terminierung: darf nur endlich viele Schritte benötigen</li>
-								<li>Determiniertheit: muss unter denselben Voraussetzungen das gleiche Ergebnis liefern</li>
+								<li>Determiniertheit: muss unter denselben Voraussetzungen<br>das gleiche Ergebnis liefern</li>
 								<li>Determinismus: der nächste Schritt muss zu jedem Zeitpunkt eindeutig sein</li>
 							</ul>
 						</div>
@@ -546,12 +542,12 @@
 						<div class="bgfooter"></div>
 						<div class="content">
 							<ul>
-								<li>Bibliotheken sind wiederverwendbare Programmteile</li>
-								<li>Bibliotheken können in eigenen Programmen verwendet werden</li>
-								<li>Bibliotheken werden mit "pip" installiert</li>
-								<li>Bibliotheken werden mit "import" verwendet</li>
-								<li>Wiederverwendbare Programmteile</li>
-								<li>Kann weiter Abhängigkeiten benötigen</li>
+								<li>sind wiederverwendbare Programmteile</li>
+								<li>können in eigenen Programmen verwendet werden</li>
+								<li>werden mit "pip" installiert</li>
+								<li>werden mit "import" verwendet</li>
+								<li>sind wiederverwendbare Programmteile</li>
+								<li>können weiter Abhängigkeiten benötigen</li>
 							</ul>
 						</div>
 						<div class="footer">
@@ -715,7 +711,7 @@
 						<div class="triangle"></div>
 						<div class="bgimage"></div>
 						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
+						<div class="content_left" style="width: 65%;">
 							<ul>
 								<li style="font-weight: bolder;">Teil 1.1: Was ist meine IP?<br>
 								Schreibe ein Python Programm das die öffentliche IP des Rechners ermittelt.<br>
@@ -867,7 +863,7 @@
 						<div class="triangle"></div>
 						<div class="bgimage"></div>
 						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
+						<div class="content_left" style="width: 65%;">
 							<ul>
 								<li>Teil 1.1: Was ist meine IP?<br>
 								Schreibe ein Python Programm das die öffentliche IP des Rechners ermittelt.<br>
@@ -930,19 +926,9 @@
 						<div class="triangle"></div>
 						<div class="bgimage"></div>
 						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%; left: 5%;">
+						<div class="content_left" style="width: 77%; left: 5%;">
 							<pre><code data-trim data-noescape>
-								import requests
-								import sys
-
-								r = requests.get('https://api.ipify.org?format=json')
-								if r.status_code != 200:
-									print('Fehler, IP konnte nicht ermittelt werden!')
-									sys.exit(1)
-
-								json = r.json()
-								ip = json['ip']
-								print(f"Die IP ist: {ip}")
+								...
 
 								geo_url = f'https://ipinfo.io/{ip}/geo'
 								r = requests.get(geo_url)
@@ -1019,19 +1005,14 @@
 						<div class="triangle"></div>
 						<div class="bgimage"></div>
 						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
+						<div class="content_left" style="width: 65%;">
 							<ul>
 								<li>openpyxl ist eine Bibliotheken für Excel Dateien</li>
 								<li><a class="link_inline" href="https://pypi.org/project/openpyxl/">https://pypi.org/project/openpyxl/</a></li>
 								<li>Installation: pip install openpyxl</li>
 							</ul>
-							<pre style="width: 70%; height: 490px; font-size: 48%;"><code data-trim data-noescape>
+							<pre style="width: 70%; height: 290px; font-size: 48%;"><code data-trim data-noescape>
 								>>> from openpyxl import load_workbook
-								book(filename = 'Employee Sample Data.xlsx')
-								ws = wb.active
-								spalten = [chr(x) for x in range(ord('A'), ord('N'))]
-								for s in spalten:
-									print(ws[f'{s}1'].value)>>> 
 								>>> wb = load_workbook(filename = 'Employee Sample Data.xlsx')
 								>>> ws = wb.active
 								>>> spalten = [chr(x) for x in range(ord('A'), ord('N'))]
@@ -1069,17 +1050,15 @@
 						<div class="triangle"></div>
 						<div class="bgimage"></div>
 						<div class="bgfooter"></div>
-						<div class="content_left" style="width: 75%;">
+						<div class="content_left" style="width: 65%;">
 							<ul>
 								<li>pyexcel-ods ist eine Bibliotheken für LibreOffice Spreadsheets</li>
 								<li><a class="link_inline" href="https://pypi.org/project/pyexcel-ods/">https://pypi.org/project/pyexcel-ods/</a></li>
 								<li>Installation: pip install pyexcel-ods</li>
 							</ul>
-							<pre style="width: 70%; height: 490px; font-size: 48%;"><code data-trim data-noescape>
+							<pre style="width: 70%; height: 290px; font-size: 48%;"><code data-trim data-noescape>
 								>>> from collections import OrderedDict
 								>>> from pyexcel_ods import save_data
-								ate({"Meine Daten": [[1, 2, 3], [4, 5, 6]]})
-								save_data("meien_daten.ods", data)>>> 
 								>>> data = OrderedDict()
 								>>> data.update({"Meine Daten": [[1, 2, 3], [4, 5, 6]]})
 								>>> save_data("meien_daten.ods", data)
@@ -1378,28 +1357,26 @@
 				<section>
 					<div class="wrapper">
 						<div class="header">
-							<div class="title">Quellen zum Selbststudium (Englisch)</div>
-							<div class="subtitle"> Erste Schritte mit Python</div>
+							<div class="title">Erste Schritte mit Python</div>
+							<div class="subtitle"></div>
 						</div>
 						<div class="decorator"></div>
 						<div class="triangle"></div>
 						<div class="bgimage"></div>
 						<div class="bgfooter"></div>
-						<div class="content_left">
-							<ul>
-								<li><a class="link_inline" href="https://docs.python.org/3.11/tutorial/">The Python Tutorial</a></li>
-								<li><a class="link_inline" href="https://docs.python-guide.org/"></a>The Hitchhiker's Guide to Python</li>
-								<li><a class="link_inline" href="https://www.python-lernen.de/">https://www.python-lernen.de/</a></li>
-								<li>Buch: Introducing Python: Modern Computing in Simple Packages</li>
-							</ul>
+						<div class="content_left" style="width: 30%;">
+							<div>
+								<h4>Eigene Projekte</h4>
+								<p>Bringt eure eigenen Projekte an Tag 4 mit!</p>
+							</div>
+							<div>
+								<h4>Wunsch Projekte?</h4>
+								<p>Was könnt ihr für euren Alltag brauchen?</p>
+							</div>
 						</div>
-						<div class="image image1">
-							<img src="assets/python-kurs.eu.png" height="100%">
-							<div class="copyright">The Python Tutorial</div>
-						</div>
-						<div class="image image4">
-							<img src="assets/python_tutorial.png" height="100%">
-							<div class="copyright">The Hitchhiker's Guide to Python</div>
+						<div class="image image_right">
+							<img src="assets/Question_mark_trio.png" height="100%">
+							<div class="copyright">Per A.J. Andersson, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons</div>
 						</div>
 						<div class="footer">
 							Kurs 23720 - Erste Schritte mit Python<br/>

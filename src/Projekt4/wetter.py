@@ -39,7 +39,6 @@ class Wetter:
         self.lon = None
         self.wetter_text = None
         self.update = None
-        
 
     def _get_ip(self):
         r = requests.get('https://api.ipify.org?format=json')
@@ -52,7 +51,8 @@ class Wetter:
         self.logger.info(f"Ihre IP ist {self.ip}.")
 
     def _get_location(self):
-        r = requests.get(f'https://sys.airtel.lv/ip2country/{self.ip}/?full=true')
+        r = requests.get(
+            f'https://sys.airtel.lv/ip2country/{self.ip}/?full=true')
         if r.status_code != 200:
             self.logger.error('Fehler, Ort konnte nicht ermittelt werden!')
             sys.exit(1)
@@ -64,8 +64,10 @@ class Wetter:
         self.logger.info(f'Sie scheinen sich in {ort} zu befinden.')
 
     def _generate_weather(self):
-        self.logger.info(f'Ermittle wetter für lat: {self.lat}, lon: {self.lon}.')
-        r = requests.get(f'https://api.open-meteo.com/v1/forecast?latitude={self.lat}&longitude={self.lon}&current_weather=true')
+        self.logger.info(
+            f'Ermittle wetter für lat: {self.lat}, lon: {self.lon}.')
+        r = requests.get(
+            f'https://api.open-meteo.com/v1/forecast?latitude={self.lat}&longitude={self.lon}&current_weather=true')
         if r.status_code != 200:
             self.logger.error('Fehler, Wetter konnte nicht ermittelt werden!')
             sys.exit(1)
@@ -75,12 +77,12 @@ class Wetter:
         temperature = wetter['temperature']
         weather_code = wetter['weathercode']
 
-        self.wetter_text =  f'Heute hat es {temperature}°C'
+        self.wetter_text = f'Heute hat es {temperature}°C'
 
         if weather_code in self.weather_codes:
-            self.wetter_text +=  f' und es ist {self.weather_codes[weather_code]}.'
+            self.wetter_text += f' und es ist {self.weather_codes[weather_code]}.'
         else:
-            self.wetter_text +=  '.'
+            self.wetter_text += '.'
 
         self.update = time.time()
 
@@ -90,10 +92,10 @@ class Wetter:
 
         if self.lat is None or self.lon is None:
             self._get_location()
-            
+
         if self.wetter_text is None or (time.time() - self.update) > 60:
             self._generate_weather()
-        
+
         return self.wetter_text
 
 
@@ -101,6 +103,6 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
 
     wetter = Wetter()
-    for _ in range(0,30):
+    for _ in range(0, 30):
         print(wetter.wetter())
         time.sleep(10)
